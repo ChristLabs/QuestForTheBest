@@ -1,198 +1,155 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Quest For The Best - Manhattan</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap" rel="stylesheet" />
-		<link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@700&display=swap" rel="stylesheet" />
-		<link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet" />
-		
-		<style>
-			.amita-regular {
-				font-family: "Amita", serif;
-				font-weight: 400;
-				font-style: normal;
-			}
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Quest For The Best - Manhattan</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@700&display=swap" rel="stylesheet" />
+	<link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet" />
+	<link href="Content/CSS/quest.css" rel="stylesheet" />
 
-			.amita-bold {
-				font-family: "Amita", serif;
-				font-weight: 700;
-				font-style: normal;
-			}
-			
-			.bona-nova-sc-bold {
-				font-family: "Bona Nova SC", serif;
-				font-weight: 700;
-				font-style: normal;
-			}
-			
-			<!-- https://css-generators.com/ribbon-shapes/ -->
-			.ribbon { }
-			
-			.ribbon {
-				--s: 2em; /* the ribbon size */
-				--d: .8em;  /* the depth */
-				--c: .8em;  /* the cutout part */
-				
-				padding: var(--d) calc(var(--s) + .5em) 0;
-				line-height: 1.8;
-				background:
-					conic-gradient(from  45deg at left  var(--s) top var(--d),
-					#0008 12.5%,#0000 0 37.5%,#0004 0) 0   /50% 100% no-repeat,
-					conic-gradient(from -45deg at right var(--s) top var(--d),
-					#0004 62.5%,#0000 0 87.5%,#0008 0) 100%/50% 100% no-repeat;
-				clip-path: polygon(0 0,calc(var(--s) + var(--d)) 0,calc(var(--s) + var(--d)) var(--d),calc(100% - var(--s) - var(--d)) var(--d),calc(100% - var(--s) - var(--d)) 0,100% 0, calc(100% - var(--c)) calc(50% - var(--d)/2),100% calc(100% - var(--d)),calc(100% - var(--s)) calc(100% - var(--d)),calc(100% - var(--s)) 100%,var(--s) 100%,var(--s) calc(100% - var(--d)),0 calc(100% - var(--d)),var(--c) calc(50% - var(--d)/2));
-				background-color: #D95B43; /* the main color */
-				width: fit-content;
-				
-				font-size: 0.8rem;
-				letter-spacing: 0.4rem;
-			}
-			
-			@media (min-width: 1200px) {
-				.ribbon {
-					font-size: 1.3rem;
-				}
-			}
+	<style>
+		.amita-regular {
+			font-family: "Amita", serif;
+			font-weight: 400;
+			font-style: normal;
+		}
 
-			body {
-				background: #10090c;
-				background: url('Content/Images/fancy-cushion.webp') repeat;
-				font-family: Georgia,Cambria,"Times New Roman",Times,serif;
-			}
-			
-			.body-darken {
-				background: rgba(0, 0, 0, 0.4);
-			}
-			
-			#hero {
-				background: url('Content/Images/Manhattan_3.webp') no-repeat center center/cover;
-				position: relative;
-				border-bottom: 1px solid #5d0000;
-				box-shadow: 0 1px 20px rgba(0,0,0,.6);
-			}
-			
-			.darken-overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 100%;
-				background: rgba(0, 0, 0, 0.6);
-			}
-			
+		.amita-bold {
+			font-family: "Amita", serif;
+			font-weight: 700;
+			font-style: normal;
+		}
+
+		.bona-nova-sc-bold {
+			font-family: "Bona Nova SC", serif;
+			font-weight: 700;
+			font-style: normal;
+		}
+
+		body {
+			background: #10090c;
+			background: url('Content/Images/fancy-cushion.webp') repeat;
+			font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+		}
+
+		.body-darken {
+			background: rgba(0, 0, 0, 0.4);
+		}
+
+		#hero {
+			background: url('Content/Images/Manhattan_3.webp') no-repeat center center/cover;
+			position: relative;
+			border-bottom: 1px solid #5d0000;
+			box-shadow: 0 1px 20px rgba(0,0,0,.6);
+		}
+
+		#hero .display-1 {
+			font-size: calc(2rem + 4.5vw);
+			text-shadow: 0 1px 5px #fff26b, 0 2px 1px #5a0003, 0 4px 1px #470411, 0 6px 1px #130014;
+		}
+
+		@media (min-width: 1200px) {
 			#hero .display-1 {
-				font-size: calc(2rem + 4.5vw);
-				text-shadow: 0 1px 5px #fff26b,
-							 0 2px 1px #5a0003,
-							 0 4px 1px #470411,
-							 0 6px 1px #130014;
-			}
-			
-			@media (min-width: 1200px) {
-				#hero .display-1 {
-					line-height: 6rem;
-					font-size: 8rem;
+				line-height: 6rem;
+				font-size: 8rem;
 				letter-spacing: 0.8rem;
-				}
 			}
+		}
 
-			.section-title {
-				color: #e7c697;
-				letter-spacing: 0.4rem;
-				text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-							 0px 8px 13px rgba(0,0,0,0.1),
-							 0px 18px 23px rgba(0,0,0,0.1);
-			}
-			
-			.section {
-				background: #333;
-				color: #d1d1d1;
-				border-radius: 10px;
-				margin: 15px 0;
-				border-bottom: 1px solid #5d0000;
-			}
-			
-			.bg-accent {
-				background: #444;
-			}
-			
+		.section-title {
+			color: #e7c697;
+			letter-spacing: 0.4rem;
+			text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+		}
+
+		.section {
+			background: #333;
+			color: #d1d1d1;
+			border-radius: 10px;
+			margin: 15px 0;
+			border-bottom: 1px solid #5d0000;
+		}
+
+		.bg-accent {
+			background: #444;
+		}
+
+		.recipe-table {
+			font-size: 1rem;
+		}
+
+		.recipe-table td {
+			vertical-align: top;
+			padding-bottom: 0.4rem;
+		}
+
+		.recipe-table td:nth-child(1) {
+			min-width: 8rem;
+		}
+
+		.recipe-table td:nth-child(2) {
+			color: #ffb245;
+		}
+
+		@media (min-width: 768px) {
 			.recipe-table {
-				font-size: 1rem;
+				font-size: 1.4rem;
 			}
-			
-			.recipe-table td {
-				vertical-align: top;
-				padding-bottom: 0.4rem;
+		}
+
+		@media (min-width: 768px) {
+			.recipe-instructions {
+				font-size: 1.4rem;
 			}
-			
-			.recipe-table td:nth-child(1) {
-				min-width: 8rem;
-				
-			}
-			
-			.recipe-table td:nth-child(2) {
-				color: #ffb245;
-			}
-			
-			@media (min-width: 768px) {
-				.recipe-table {
-					font-size: 1.4rem;
-				}
-			}
-			
-			@media (min-width: 768px) {
-				.recipe-instructions {
-					font-size: 1.4rem;
-				}
-			}
-			
+		}
+
+		.riffs-riff {
+			font-weight: bold;
+		}
+
+		@media (min-width: 768px) {
 			.riffs-riff {
-				font-weight: bold;
+				font-size: 1.4rem;
 			}
-			
-			@media (min-width: 768px) {
-				.riffs-riff {
-					font-size: 1.4rem;
-				}
-			}
-			
-			.riffs-img {
-				width: 120px;
-				height: 120px;
-				margin-bottom: 1rem;
-			}
-			
-			.list-group {
-				--bs-list-group-border-color: #666;
-				font-size: 1.2rem;
-			}
-			
-			.list-group-item {
-				background: #444;
-				color: #ffb245;
-			}
-			
-			.list-group-item.active {
-				background: #8B0000;
-				border-color: #8B0000;
-			}
+		}
 
-			.bullet {
-				display: inline-block;
-				margin-right: 0.5rem;
-			}
+		.riffs-img {
+			width: 120px;
+			height: 120px;
+			margin-bottom: 1rem;
+		}
 
-			footer {
-				background: #222;
-				color: #d1d1d1;
-				padding: 20px 0;
-			}
-		</style>
-	</head>
+		.list-group {
+			--bs-list-group-border-color: #666;
+			font-size: 1.2rem;
+		}
+
+		.list-group-item {
+			background: #444;
+			color: #ffb245;
+		}
+
+		.list-group-item.active {
+			background: #8B0000;
+			border-color: #8B0000;
+		}
+
+		.bullet {
+			display: inline-block;
+			margin-right: 0.5rem;
+		}
+
+		footer {
+			background: #222;
+			color: #d1d1d1;
+			padding: 20px 0;
+		}
+	</style>
+</head>
 	<body>
 		<div class="body-darken">
 			<!-- Header Section -->
@@ -206,7 +163,7 @@
 						<h2 class="display-5 amita-regular mb-0">The History of the</h2>
 						<h1 class="display-1 bona-nova-sc-bold">Manhattan</h1>
 						<div class="py-4"></div>
-						<h4 class="amita-regular">"A timeless classic, served in style."</h3>
+						<h4 class="amita-regular">"A timeless classic, served in style."</h4>
 						<hr />
 					</div>
 				</div>

@@ -1,151 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The History of the Hot Toddy Cocktail</title>
-		<link href="Content/CSS/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                background: #1c1c1c;
-                color: #d1d1d1;
-                font-family: 'Arial', sans-serif;
-            }
-            header {
-                background: url('Content/Images/HotToddy4_cropped.webp') no-repeat center center/cover;
-                height: 350px;
-                text-align: center;
-                color: #fff;
-                position: relative;
-            }
-            header .overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.5);
-            }
-            header h1 {
-                position: relative;
-                z-index: 2;
-                margin-top: 120px;
-            }
-            .section-title {
-                color: #f4c542;
-                margin-bottom: 20px;
-            }
-            .section {
-                background: #333;
-                border-radius: 10px;
-                padding: 20px;
-                margin: 15px 0;
-            }
-            .bg-accent {
-                background: #444;
-            }
-            .list-group-item {
-                background: #444;
-                color: #f4c542;
-            }
-            .list-group-item.active {
-                background: #8B0000;
-                border-color: #8B0000;
-            }
-            footer {
-                background: #111;
-                color: #d1d1d1;
-                padding: 20px 0;
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Header Section -->
-        <header class="d-flex align-items-center justify-content-center">
-            <div class="overlay"></div>
-            <div class="container text-center text-light position-relative">
-                <h1 class="display-4 fw-bold">The History of the Hot Toddy</h1>
-                <p class="lead">"Warmth and comfort in every sip."</p>
-            </div>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The History of the Hot Toddy Cocktail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:wght@100..900&display=swap" rel="stylesheet">
+    <link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet">
+    <link href="Content/CSS/quest.css" rel="stylesheet" />
+    <style>
+        .pacifico-regular {
+            font-family: "Pacifico", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-        <!-- Origin Section -->
-        <section class="container my-5">
-            <div class="section">
-                <h2 class="section-title text-center">Place of Origin</h2>
-                <p>The Hot Toddy is a classic cocktail with roots in 18th-century Scotland and Ireland. It was originally crafted as a warm remedy for cold nights, often using whiskey, honey, and hot water as a comforting drink. Over time, it became a popular choice worldwide for its soothing qualities and simple preparation.</p>
-            </div>
-        </section>
+        .sour-gummy-light {
+            font-family: "Sour Gummy", serif;
+            font-optical-sizing: auto;
+            font-weight: 100;
+            font-style: normal;
+        }
 
-        <!-- Ingredients Section -->
-        <section class="container my-5">
-            <div class="section bg-accent">
-                <h2 class="section-title text-center">Typical Ingredients</h2>
-                <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item">2 oz Whiskey (Bourbon or Scotch)</li>
-                    <li class="list-group-item">1 tbsp Honey</li>
-                    <li class="list-group-item">1/2 oz Lemon Juice</li>
-                    <li class="list-group-item">4-6 oz Hot Water</li>
-                    <li class="list-group-item">Cinnamon Stick (for garnish)</li>
-                    <li class="list-group-item">Lemon Wheel (for garnish)</li>
-                </ul>
-            </div>
-        </section>
+        .sour-gummy-medium {
+            font-family: "Sour Gummy", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-        <!-- How to Make Section -->
-        <section class="container my-5">
-            <div class="section">
-                <h2 class="section-title text-center">How to Make a Hot Toddy</h2>
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <ol class="list-group list-group-numbered">
-                            <li class="list-group-item">Add whiskey, honey, and lemon juice to a mug.</li>
-                            <li class="list-group-item">Pour in hot water and stir until the honey dissolves.</li>
-                            <li class="list-group-item">Garnish with a cinnamon stick and a lemon wheel.</li>
-                            <li class="list-group-item">Serve warm and enjoy.</li>
-                        </ol>
-                    </div>
+        .sour-gummy-bold {
+            font-family: "Sour Gummy", serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        body {
+            --bs-body-font-size: 1.4rem;
+            --bs-body-font-family: 'Sour Gummy', 'Comic Sans MS', 'Arial', sans-serif;
+            background: #1c1c1c;
+            color: #d1d1d1;
+        }
+
+        p {
+            font-family: 'Sour Gummy', 'Comic Sans MS', 'Arial', sans-serif;
+        }
+
+        #hero {
+            background: url('Content/Images/HotToddy4_cropped.webp') no-repeat center center/cover;
+            position: relative;
+            box-shadow: 0 1px 20px rgba(0,0,0,1), 0 1px 40px rgba(0,0,0,1);
+        }
+
+        .ribbon {
+            color: rgba(0,0,0,.6);
+            text-shadow: 2px 2px 3px rgba(255,255,255,0.3);
+        }
+
+        #hero .display-1 {
+            font-size: calc(2rem + 4.5vw);
+            text-shadow: -10px 10px 0px rgba(255,190,51,.6), -20px 20px 0px rgba(204,146,22,.4), -30px 30px 0px rgba(145,99,0,.2);
+        }
+
+        #hero .display-5, #hero h4 {
+            text-shadow: 0 0 4px #000, 0 0 8px #000;
+        }
+
+        @media (min-width: 1200px) {
+            #hero .display-1 {
+                line-height: 6rem;
+                font-size: 7rem;
+            }
+        }
+
+        .section-title {
+            color: #73f3ff;
+            letter-spacing: 0.2rem;
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            background: url('Content/Images/HotToddyTile.png') repeat center;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,.25), 0 10px 20px rgba(0,0,0,.75);
+        }
+
+        .section p {
+            text-shadow: 0 0 2px rgba(20,20,20,.5), 0 0 4px rgba(40,40,40,.5), 0 0 6px rgba(51,51,51,.5), 0 0 8px rgba(51,51,51,.5), 0 0 10px rgba(51,51,51,.5);
+        }
+
+        #background-cover {
+            position: absolute;
+            background: url('Content/Images/Clementines.jpg') no-repeat center center/cover;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .bg-accent {
+            background: #52483a;
+        }
+
+        .recipe-table {
+            font-size: 1rem;
+        }
+
+        .recipe-table td {
+            vertical-align: top;
+            padding-bottom: 0.4rem;
+        }
+
+        .recipe-table td:nth-child(1) {
+            min-width: 8rem;
+        }
+
+        .recipe-table td:nth-child(2) {
+            color: #ffbe33;
+        }
+
+        @media (min-width: 768px) {
+            .recipe-table {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .recipe-instructions {
+                font-size: 1.4rem;
+            }
+        }
+
+        .riffs-riff {
+            font-weight: bold;
+        }
+
+        @media (min-width: 768px) {
+            .riffs-riff {
+                font-size: 1.4rem;
+            }
+        }
+
+        .riffs-img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+
+        .list-group-item {
+            background: #444;
+            color: #f4c542;
+        }
+
+        .list-group-item.active {
+            background: #8B0000;
+            border-color: #8B0000;
+        }
+
+        footer {
+            background: #111;
+            color: #d1d1d1;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="darken-overlay"></div>
+        <div class="container text-center text-light position-relative">
+            <div class="jumbotron py-5">
+                <hr />
+                <div class="ribbon sour-gummy-bold text-uppercase mx-auto">&nbsp;Quest For The Best&nbsp;</div>
+                <div class="py-4"></div>
+                <h2 class="display-5 sour-gummy-medium mb-2">The History of the</h2>
+                <h1 class="display-1 pacifico-regular">Hot Toddy</h1>
+                <div class="py-4"></div>
+                <h4 class="sour-gummy-medium">"Warmth and comfort in every sip."</h4>
+                <hr />
+            </div>
+        </div>
+    </section>
+
+    <!-- JB's Stray background -->
+    <div id="background-cover"></div>
+
+    <!-- Origin Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3">
+            <h2 class="section-title text-center sour-gummy-bold mb-4">Place of Origin</h2>
+            <p class="px-md-5 px-3">
+                The Hot Toddy is a classic cocktail with <strong>roots in 18th-century</strong> Scotland and Ireland. It was originally crafted as a warm remedy for cold nights, often using whiskey, honey, and hot water as a comforting drink. Over time, it became a popular choice worldwide for its soothing qualities and simple preparation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-0 px-3">
+            <h2 class="section-title text-center mb-3">Recipe</h2>
+            <div class="row justify-content-center bg-accent rounded py-3 mb-3">
+                <div class="col-md-8">
+                    <table class="recipe-table mx-auto">
+                        <tr>
+                            <td>2 parts</td>
+                            <td><strong>Whiskey</strong> (<strong>Bourbon</strong> or <strong>Scotch</strong>)</td>
+                        </tr>
+                        <tr>
+                            <td>1/2 part</td>
+                            <td><strong>Honey</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1/2 part</td>
+                            <td><strong>Lemon Juice</strong></td>
+                        </tr>
+                        <tr>
+                            <td>4-6 parts</td>
+                            <td><strong>Hot Water</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><strong><strong>Cinnamon Stick</strong> (for garnish)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><strong><strong>Lemon Wheel</strong> (for garnish)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong><strong>Clove Buds</strong> (for garnish)</strong></td>
+                        </tr>
+                    </table>
+
                 </div>
             </div>
-        </section>
 
-        <!-- Glassware Section -->
-        <section class="container my-5">
-            <div class="section">
-                <h2 class="section-title text-center">Typical Glassware</h2>
-                <p>The Hot Toddy is traditionally served in a sturdy mug or heat-resistant glass. These allow for safe handling of the hot beverage and add a rustic charm to the presentation.</p>
+            <!-- How to Make Section -->
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="recipe-instructions text-center">
+                        Add whiskey, honey, and lemon juice to a mug, then pour in hot water and stir until the honey dissolves. Garnish with a cinnamon stick and a lemon wheel, then serve warm and enjoy!
+                    </p>
+                    <p class="text-center">
+                        Use the clove buds for something too. ;)
+                    </p>
+                </div>
             </div>
-        </section>
-
-        <!-- Influence Section -->
-        <section class="container my-5">
-            <div class="section bg-accent">
-                <h2 class="section-title text-center">Influence on Other Cocktails</h2>
-                <p>The Hot Toddy's simplicity and warmth have inspired many variations and influenced other hot cocktails like the Irish Coffee and Mulled Wine. It remains a go-to drink for soothing colds and warming spirits during chilly weather.</p>
-            </div>
-        </section>
-
-        <!-- Riffs Section -->
-        <section class="container my-5">
-            <div class="section">
-                <h2 class="section-title text-center">Potential Riffs</h2>
-                <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item"><strong>Spiced Rum Toddy:</strong> Replace whiskey with spiced rum for a sweeter, more aromatic version.</li>
-                    <li class="list-group-item"><strong>Herbal Toddy:</strong> Add a splash of herbal liqueur like Chartreuse or Benedictine for a complex twist.</li>
-                    <li class="list-group-item"><strong>Maple Toddy:</strong> Substitute honey with maple syrup for a rich, warm flavor.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Footer Section -->
-        <div class="container text-center my-4">
-            <a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
         </div>
-        <footer class="text-center">
-                <p class="mb-0"><strong>Quest For The Best</strong> &mdash; Hot Toddy</p>
-        </footer>
+    </section>
 
-        <!-- Bootstrap JS Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+    <!-- Glassware Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3">
+            <h2 class="section-title text-center mb-3">Glassware</h2>
+            <p class="px-md-5 px-3">The Hot Toddy is <strong>traditionally served in a sturdy mug or heat-resistant glass</strong>. These allow for safe handling of the hot beverage and add a rustic charm to the presentation.</p>
+        </div>
+    </section>
+
+    <!-- Influence Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3 bg-accent">
+            <h2 class="section-title text-center mb-3">Influence on Other Cocktails</h2>
+            <p class="px-md-5 px-3">The Hot Toddy's simplicity and warmth have inspired many variations and influenced other hot cocktails like the <strong>Irish Coffee</strong> and <strong>Mulled Wine</strong>. It remains a go-to drink for soothing colds and warming spirits during chilly weather.</p>
+        </div>
+    </section>
+
+    <!-- Riffs Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3">
+            <h2 class="section-title text-center mb-3">Potential Riffs</h2>
+            <p class="text-center">
+                <img src="Content/Images/HotButteredCider.webp" class="d-block mx-auto riffs-img" alt="Spiced Rum Toddy" width="512" height="512" />
+                <span class="riffs-riff">Spiced Rum Toddy</span>
+                <br />
+                Replace whiskey with spiced rum for a sweeter, more aromatic version.
+            </p>
+            <p class="text-center">
+                <img src="Content/Images/HotToddy.webp" class="d-block mx-auto riffs-img" alt="Herbal Toddy" width="512" height="512" />
+                <span class="riffs-riff">Herbal Toddy</span>
+                <br />
+                Add a splash of herbal liqueur like Chartreuse or Benedictine for a complex twist.
+            </p>
+            <p class="text-center">
+                <img src="Content/Images/PumpkinToddy.webp" class="d-block mx-auto riffs-img" alt="Maple Toddy" width="512" height="512" />
+                <span class="riffs-riff">Maple Toddy</span>
+                <br />
+                Substitute honey with maple syrup for a rich, warm flavor.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <div class="container text-center my-4">
+        <a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
+    </div>
+    <footer class="text-center">
+        <p class="mb-0"><strong>Quest For The Best</strong> &mdash; Hot Toddy</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

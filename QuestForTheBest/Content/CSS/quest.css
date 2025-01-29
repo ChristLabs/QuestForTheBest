@@ -1,0 +1,33 @@
+.darken-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* https://css-generators.com/ribbon-shapes/ */
+.ribbon {
+}
+
+.ribbon {
+    --s: 2em; /* the ribbon size */
+    --d: .8em; /* the depth */
+    --c: .8em; /* the cutout part */
+
+    padding: var(--d) calc(var(--s) + .5em) 0;
+    line-height: 1.8;
+    background: conic-gradient(from 45deg at left var(--s) top var(--d), #0008 12.5%,#0000 0 37.5%,#0004 0) 0 /50% 100% no-repeat, conic-gradient(from -45deg at right var(--s) top var(--d), #0004 62.5%,#0000 0 87.5%,#0008 0) 100%/50% 100% no-repeat;
+    clip-path: polygon(0 0,calc(var(--s) + var(--d)) 0,calc(var(--s) + var(--d)) var(--d),calc(100% - var(--s) - var(--d)) var(--d),calc(100% - var(--s) - var(--d)) 0,100% 0, calc(100% - var(--c)) calc(50% - var(--d)/2),100% calc(100% - var(--d)),calc(100% - var(--s)) calc(100% - var(--d)),calc(100% - var(--s)) 100%,var(--s) 100%,var(--s) calc(100% - var(--d)),0 calc(100% - var(--d)),var(--c) calc(50% - var(--d)/2));
+    background-color: #D95B43; /* the main color */
+    width: fit-content;
+    font-size: 0.8rem;
+    letter-spacing: 0.4rem;
+}
+
+@media (min-width: 1200px) {
+    .ribbon {
+        font-size: 1.3rem;
+    }
+}

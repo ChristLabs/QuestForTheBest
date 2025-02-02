@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace QuestForTheBestApi.Data.Models
 {
-    public class Cocktail
+    public class Quest
     {
+        public short QuestId { get; set; }
         public short CocktailId { get; set; }
 
         public string CocktailName { get; set; }

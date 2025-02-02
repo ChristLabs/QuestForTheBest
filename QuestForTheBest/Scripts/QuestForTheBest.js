@@ -2,7 +2,7 @@
 
 
 async function getQuests(){
-    const response = await fetch("http://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetQuests");
+    const response = await fetch("https://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetQuests");
     const data = await response.json();
     
     data.forEach((quest) => {

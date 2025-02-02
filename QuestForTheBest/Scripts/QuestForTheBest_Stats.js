@@ -9,14 +9,14 @@ function getStats(){
 getStats();
 
 async function getTotalScores(){
-    const response = await fetch("http://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetTotalScores");
+    const response = await fetch("https://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetTotalScores");
     const data = await response.json();
     
     document.getElementById("lblTotalScores").innerHTML = data;
 }
 
 async function getScoresByCocktail(){
-    const response = await fetch("http://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetScoresByCocktail");
+    const response = await fetch("https://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetScoresByCocktail");
     const data = await response.json();
     
     data.forEach((stat) => {
@@ -25,7 +25,7 @@ async function getScoresByCocktail(){
 }
 
 async function getScoresByQuester(){
-    const response = await fetch("http://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetScoresByQuester");
+    const response = await fetch("https://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetScoresByQuester");
     const data = await response.json();
     
     data.forEach((stat) => {
@@ -34,7 +34,7 @@ async function getScoresByQuester(){
 }
 
 async function getScoresByBar(){
-    const response = await fetch("http://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetScoresByBar");
+    const response = await fetch("https://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetScoresByBar");
     const data = await response.json();
     
     data.forEach((stat) => {

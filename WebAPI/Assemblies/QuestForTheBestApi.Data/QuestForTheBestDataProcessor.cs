@@ -157,7 +157,10 @@ namespace QuestForTheBestApi.Data
 								FROM cte_BarsAndQuests bnq
 								GROUP BY bnq.BarId
 						)
-						SELECT b.BarName, STR(AVG(s.Score), 4, 2) AS AverageScore, MAX(btv.TimesVisited) AS TimesVisited
+						SELECT b.BarName
+								,STR(AVG(s.Score), 4, 2) AS AverageScore
+								,MAX(btv.TimesVisited) AS TimesVisited
+								,COUNT(s.Score) AS CocktailsDrank
 							FROM Scores s
 								INNER JOIN cte_BarsTimesVisited btv
 									ON s.BarId = btv.BarId
@@ -175,7 +178,8 @@ namespace QuestForTheBestApi.Data
 						{
 							BarName = dr.GetString(0),
 							AverageScore = dr.GetString(1),
-							TimesVisited = dr.GetInt32(2)
+							TimesVisited = dr.GetInt32(2),
+							CocktailsDrank = dr.GetInt32(3)
 						});
 					}
 				}

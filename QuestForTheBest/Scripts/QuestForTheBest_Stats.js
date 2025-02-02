@@ -38,6 +38,6 @@ async function getScoresByBar(){
     const data = await response.json();
     
     data.forEach((stat) => {
-		document.getElementById("tblScoresByBar").insertAdjacentHTML("beforeend", `<tr><td>${stat.barName}</td><td>${stat.averageScore}</td><td>${stat.timesVisited}</td></tr>`)
+		document.getElementById("tblScoresByBar").insertAdjacentHTML("beforeend", `<tr><td>${stat.barName}</td><td>${stat.averageScore}</td><td>${stat.timesVisited}</td><td>${stat.cocktailsDrank}</td></tr>`)
     });
 }

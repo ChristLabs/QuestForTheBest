@@ -23,6 +23,16 @@ namespace QuestForTheBestApi.Controllers
         public int GetTotalScores() => QuestForTheBestDataProcessor.GetTotalScores();
 
         [HttpGet]
+        [Route("GetHighestScores")]
+        [RequestExceptionHandling]
+        public object GetHighestScores() => QuestForTheBestDataProcessor.GetHighestScores();
+
+        [HttpGet]
+        [Route("GetHighestCocktailScores")]
+        [RequestExceptionHandling]
+        public object GetHighestCocktailScores() => QuestForTheBestDataProcessor.GetHighestCocktailScores();
+
+        [HttpGet]
         [Route("GetQuests")]
         [RequestExceptionHandling]
         public List<Quest> GetQuests() => QuestForTheBestDataProcessor.GetQuests();

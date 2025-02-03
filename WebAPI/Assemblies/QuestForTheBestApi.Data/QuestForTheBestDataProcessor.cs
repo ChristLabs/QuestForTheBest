@@ -29,9 +29,94 @@ namespace QuestForTheBestApi.Data
 			}
 
 			return ret;
-		}
+        }
 
-		public static List<Quest> GetQuests()
+        public static List<object> GetHighestScores()
+        {
+            var ret = new List<object>();
+
+            using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
+            {
+                using (var cmd = sqlConn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+						SELECT TOP (5) 
+								COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
+								,s.Score
+								,c.CocktailName
+								,b.BarName
+								,quest.DateOfQuest
+							FROM Scores s
+								INNER JOIN Questers q
+									ON s.QuesterId = q.QuesterId
+								INNER JOIN Bars b
+									ON s.BarId = b.BarId
+								INNER JOIN Cocktails c
+									ON s.CocktailId = c.CocktailId
+								INNER JOIN Quests quest
+									ON s.QuestId = quest.QuestId
+							ORDER BY s.Score DESC;";
+
+                    sqlConn.Open();
+
+                    using var dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ret.Add(new
+                        {
+                            QuesterName = dr.GetString(0),
+                            Score = dr.GetDecimal(1),
+                            CocktailName = dr.GetString(2),
+                            BarName = dr.GetString(3),
+                            DateOfQuest = dr.GetDateTime(4)
+                        });
+                    }
+                }
+            }
+
+            return ret;
+        }
+
+		public static List<object> GetHighestCocktailScores()
+		{
+            var ret = new List<object>();
+
+            using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
+            {
+                using (var cmd = sqlConn.CreateCommand())
+                {
+                    cmd.CommandText = @"
+						SELECT TOP (5)
+								c.CocktailName
+								,b.BarName 
+								,STR(AVG(s.Score), 4, 2) AS AverageScore
+							FROM Scores s
+								INNER JOIN Cocktails c
+									ON s.CocktailId = c.CocktailId
+								INNER JOIN Bars b
+									ON s.BarId = b.BarId
+							GROUP BY c.CocktailId, c.CocktailName, b.BarId, b.BarName
+							ORDER BY AverageScore DESC;";
+
+                    sqlConn.Open();
+
+                    using var dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        ret.Add(new
+                        {
+                            CocktailName = dr.GetString(0),
+                            BarName = dr.GetString(1),
+                            AverageScore = dr.GetString(2)
+                        });
+                    }
+                }
+            }
+
+            return ret;
+        }
+
+        public static List<Quest> GetQuests()
 		{
 			var ret = new List<Quest>();
 

@@ -55,3 +55,29 @@ SELECT COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
 	GROUP BY q.QuesterId, q.QuesterNickname, q.QuesterName
 	ORDER BY CocktailsDrank DESC;
 
+-- Highest score given
+SELECT TOP (10) COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
+				,s.Score
+				,c.CocktailName
+				,b.BarName
+	FROM Scores s
+		INNER JOIN Questers q
+			ON s.QuesterId = q.QuesterId
+		INNER JOIN Bars b
+			ON s.BarId = b.BarId
+		INNER JOIN Cocktails c
+			ON s.CocktailId = c.CocktailId
+	ORDER BY s.Score DESC;
+
+-- Highest average score for a bar's cocktail
+SELECT TOP (5)
+		c.CocktailName
+		,b.BarName 
+		,STR(AVG(s.Score), 4, 2) AS AverageScore
+	FROM Scores s
+		INNER JOIN Cocktails c
+			ON s.CocktailId = c.CocktailId
+		INNER JOIN Bars b
+			ON s.BarId = b.BarId
+	GROUP BY c.CocktailId, c.CocktailName, b.BarId, b.BarName
+	ORDER BY AverageScore DESC;

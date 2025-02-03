@@ -60,6 +60,7 @@ SELECT TOP (10) COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
 				,s.Score
 				,c.CocktailName
 				,b.BarName
+				,quest.DateOfQuest
 	FROM Scores s
 		INNER JOIN Questers q
 			ON s.QuesterId = q.QuesterId
@@ -67,6 +68,8 @@ SELECT TOP (10) COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
 			ON s.BarId = b.BarId
 		INNER JOIN Cocktails c
 			ON s.CocktailId = c.CocktailId
+		INNER JOIN Quests quest
+			ON s.QuestId = quest.QuestId
 	ORDER BY s.Score DESC;
 
 -- Highest average score for a bar's cocktail

@@ -49,7 +49,7 @@ async function getScoresByQuester(){
     const data = await response.json();
     
     data.forEach((stat) => {
-		  document.getElementById("tblScoresByQuester").insertAdjacentHTML("beforeend", `<tr><td>${stat.questerName}</td><td>${stat.averageScore}</td><td>${stat.cocktailsDrank}</td></tr>`)
+		  document.getElementById("tblScoresByQuester").insertAdjacentHTML("beforeend", `<tr><td>${(stat.questerName == "Shawn" ? "Luna" : stat.questerName)}</td><td>${stat.averageScore}</td><td>${stat.cocktailsDrank}</td></tr>`)
     });
 }
 

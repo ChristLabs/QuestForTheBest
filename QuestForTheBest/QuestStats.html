@@ -11,6 +11,26 @@
                 color: #d1d1d1;
                 font-family: 'Arial', sans-serif;
             }
+			header {
+				background: url('Content/Images/CockStats_banner.webp') no-repeat center center/cover;
+				height: 400px;
+				color: #fff;
+				text-align: center;
+				position: relative;
+			}
+			header .overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6);
+			}
+			header h1 {
+				margin-top: 150px;
+				z-index: 2;
+				position: relative;
+			}
             .section {
                 background: #333;
                 border-radius: 10px;
@@ -35,99 +55,112 @@
     <body>
 
         <!-- Header Section -->
-        <header class="text-center py-4">
-            <h1 class="display-4">Cocktail Statistics</h1>
-            <p class="lead">Explore the numbers behind our favorite cocktails.</p>
-        </header>
+		<header class="d-flex align-items-center justify-content-center">
+			<div class="overlay"></div>
+			<div class="container position-relative">
+				<h1 class="display-3 fw-bold">Cocktail Statistics</h1>
+				<p class="lead">Explore the numbers behind our favorite cocktails.</p>
+			</div>
+		</header>
 
         <div class="container my-3">
 
             <!-- Total Scores Given -->
             <div class="section">
-                <h2 class="section-title">Total Cocktails Drank</h2>
+                <h2 class="section-title">Total Cocktails Consumed</h2>
                 <p class="text-center">Total reviews recorded: <strong id="lblTotalScores">150</strong></p>
             </div>
 
             <!-- Highest Scores Given -->
             <div class="section col">
                 <h2 class="section-title">Highest Scores Given</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Quester</th>
-                            <th>Score</th>
-                            <th>Cocktail</th>
-                            <th>Bar</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblHighestScores">
-                    </tbody>
-                </table>
+				<div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Quester</th>
+                                <th>Score</th>
+                                <th>Cocktail</th>
+                                <th>Bar</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblHighestScores">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <!-- Highest Cocktail Scores Given -->
+            <!-- Highest Cocktail/Bar Scores Given -->
             <div class="section col">
-                <h2 class="section-title">Highest Cocktail Scores Given</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Cocktail</th>
-                            <th>Bar</th>
-                            <th>Average Score</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblHighestCocktailScores">
-                    </tbody>
-                </table>
+                <h2 class="section-title">Highest Average Scores For a Cocktail/Bar Combo</h2>
+				<div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Cocktail</th>
+                                <th>Bar</th>
+                                <th>Average Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblHighestCocktailScores">
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
             <!-- Average Score Per Cocktail -->
             <div class="section">
-                <h2 class="section-title">Average Score Per Cocktail</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Cocktail</th>
-                            <th>Average Score</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblScoresByCocktail">
-                    </tbody>
-                </table>
+                <h2 class="section-title">Average Score By Cocktail</h2>
+				<div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Cocktail</th>
+                                <th>Average Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblScoresByCocktail">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- Average Score Per Person -->
             <div class="section">
-                <h2 class="section-title">Average Score Per Person</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Quester</th>
-                            <th>Average Score</th>
-                            <th>Cocktails Drank</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblScoresByQuester">
-                    </tbody>
-                </table>
+                <h2 class="section-title">Average Score By Quester</h2>
+				<div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Quester</th>
+                                <th>Average Score</th>
+                                <th>Cocktails Drank</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblScoresByQuester">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <!-- Average Score Per Bar -->
             <div class="section">
-                <h2 class="section-title">Average Score Per Bar</h2>
-                <table class="table table-dark table-striped">
-                    <thead>
-                        <tr>
-                            <th>Bar</th>
-                            <th>Average Score</th>
-                            <th>Times Visited</th>
-                            <th>Cocktails Drank</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tblScoresByBar">
-                    </tbody>
-                </table>
+                <h2 class="section-title">Average Score By Bar</h2>
+				<div class="table-responsive">
+                    <table class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>Bar</th>
+                                <th>Average Score</th>
+                                <th>Times Visited</th>
+                                <th>Cocktails Drank</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tblScoresByBar">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         </div>

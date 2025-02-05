@@ -56,8 +56,8 @@ SELECT COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
 	ORDER BY CocktailsDrank DESC;
 
 -- Highest score given
-SELECT TOP (10) COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
-				,s.Score
+SELECT TOP (5) COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterName
+				,STR(s.Score, 4, 2) AS Score
 				,c.CocktailName
 				,b.BarName
 				,quest.DateOfQuest

@@ -1,182 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cock Stats</title>
-		<link href="Content/CSS/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                background: #1c1c1c;
-                color: #d1d1d1;
-                font-family: 'Arial', sans-serif;
-            }
-			header {
-				background: url('Content/Images/CockStats_banner.jpg') no-repeat center center/cover;
-				height: 400px;
-				color: #fff;
-				text-align: center;
-				position: relative;
-			}
-			header .overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba(0, 0, 0, 0.6);
-			}
-			header h1 {
-				margin-top: 150px;
-				z-index: 2;
-				position: relative;
-			}
-            .section {
-                background: #333;
-                border-radius: 10px;
-                padding: 20px;
-                margin: 15px 0;
-            }
-            .section-title {
-                color: #f4c542;
-                margin-bottom: 20px;
-            }
-            .table {
-                background: #444;
-                color: #f4c542;
-            }
-            footer {
-                background: #111;
-                color: #d1d1d1;
-                padding: 20px 0;
-            }
-        </style>
-    </head>
-    <body>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Cock Stats</title>
+    <link href="Content/CSS/bootstrap-vapor.min.css" rel="stylesheet">
+    <link href="Content/CSS/all.min.css" rel="stylesheet">
+    <link href="Content/CSS/cock.css" rel="stylesheet">
+</head>
+<body>
 
-        <!-- Header Section -->
-		<header class="d-flex align-items-center justify-content-center">
-			<div class="overlay"></div>
-			<div class="container position-relative">
-				<h1 class="display-3 fw-bold">Cocktail Statistics</h1>
-				<p class="lead">Explore the numbers behind our favorite cocktails.</p>
-			</div>
-		</header>
+    <!-- Header Section -->
+    <header class="d-flex align-items-center justify-content-center">
+        <div class="darken-overlay"></div>
+        <div class="container position-relative">
+            <h1 class="display-1 fw-bold plateia">
+                Cocktail
+                <br />
+                Statistics
+            </h1>
+            <h3 class="display-3">Explore the numbers behind our favorite&nbsp;cocktails.</h3>
+        </div>
+    </header>
 
-        <div class="container my-3">
+    <div class="container my-3">
 
-            <!-- Total Scores Given -->
-            <div class="section">
-                <h2 class="section-title">Total Cocktails Consumed</h2>
-                <p class="text-center">Total reviews recorded: <strong id="lblTotalScores">150</strong></p>
-            </div>
-
-            <!-- Highest Scores Given -->
-            <div class="section col">
-                <h2 class="section-title">Highest Scores Given</h2>
-				<div class="table-responsive">
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <tr>
-                                <th>Quester</th>
-                                <th>Score</th>
-                                <th>Cocktail</th>
-                                <th>Bar</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tblHighestScores">
-                        </tbody>
-                    </table>
+        <h2 class="display-5 plateia mb-4">Latest Quest Winners</h2>
+        <div id="quest-winners-row" class="row">
+            <div class="col-lg-4">
+                <div class="card mb-lg-0 mb-3">
+                    <div class="card-body card-background" style="background-image: url('Content/Images/Margarita_card.webp');">
+                        <div class="darken-overlay"></div>
+                        <div class="position-relative text-center">
+                            <h4 class="card-title text-uppercase m-0">Dos Hermanos</h4>
+                            <h6 class="card-title text-uppercase m-0">Margarita</h6>
+                            <h2 class="display-2 mb-0">8.38</h2>
+                            <p class="card-text text-uppercase">Average Score</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm text-uppercase">View quest</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Highest Cocktail/Bar Scores Given -->
-            <div class="section col">
-                <h2 class="section-title">Highest Average Scores For a Cocktail/Bar Combo</h2>
-				<div class="table-responsive">
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <tr>
-                                <th>Cocktail</th>
-                                <th>Bar</th>
-                                <th>Average Score</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tblHighestCocktailScores">
-                        </tbody>
-                    </table>
+            <div class="col-lg-4">
+                <div class="card mb-lg-0 mb-3">
+                    <div class="card-body card-background" style="background-image: url('Content/Images/WhiskeySour_card.webp');">
+                        <div class="darken-overlay"></div>
+                        <div class="position-relative text-center">
+                            <h4 class="card-title text-uppercase m-0">Shiny Prize</h4>
+                            <h6 class="card-title text-uppercase m-0">Whiskey Sour</h6>
+                            <h2 class="display-2 mb-0">8.28</h2>
+                            <p class="card-text text-uppercase">Average Score</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm text-uppercase">View quest</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Average Score Per Cocktail -->
-            <div class="section">
-                <h2 class="section-title">Average Score By Cocktail</h2>
-				<div class="table-responsive">
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <tr>
-                                <th>Cocktail</th>
-                                <th>Average Score</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tblScoresByCocktail">
-                        </tbody>
-                    </table>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body card-background" style="background-image: url('Content/Images/Manhattan_card.webp');">
+                        <div class="darken-overlay"></div>
+                        <div class="position-relative text-center">
+                            <h4 class="card-title text-uppercase m-0">Shiny Prize</h4>
+                            <h6 class="card-title text-uppercase m-0">Manhattan</h6>
+                            <h2 class="display-2 mb-0">8.17</h2>
+                            <p class="card-text text-uppercase">Average Score</p>
+                            <a href="#" class="btn btn-outline-primary btn-sm text-uppercase">View quest</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <!-- Average Score Per Person -->
-            <div class="section">
-                <h2 class="section-title">Average Score By Quester</h2>
-				<div class="table-responsive">
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <tr>
-                                <th>Quester</th>
-                                <th>Average Score</th>
-                                <th>Cocktails Drank</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tblScoresByQuester">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Average Score Per Bar -->
-            <div class="section">
-                <h2 class="section-title">Average Score By Bar</h2>
-				<div class="table-responsive">
-                    <table class="table table-dark table-striped">
-                        <thead>
-                            <tr>
-                                <th>Bar</th>
-                                <th>Average Score</th>
-                                <th>Times Visited</th>
-                                <th>Cocktails Drank</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tblScoresByBar">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
         </div>
 
-        <!-- Back to Homepage Button -->
-        <div class="container text-center my-4">
-            <a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
+        <hr class="invisible my-5" />
+
+        <!-- Total Scores Given -->
+        <div id="total-consumption-row" class="row gx-4">
+            <div class="col">
+                <div class="card h-100">
+                    <div id="total-consumption-card-body" class="card-body p-4 text-center">
+                        <h1 id="cocktail-icon"><i class="fa-solid fa-martini-glass-citrus"></i></h1>
+                        <h1 id="lblTotalScores" class="display-1 plateia"></h1>
+                        <h2 class="display-5 d-block plateia m-0">
+                            Total Cocktails Consumed
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-auto col">
+                <div class="card h-100 mt-lg-0 mt-3">
+                    <div class="card-body p-4 text-center">
+                        <h3 class="text-uppercase mt-0 mb-4">Drunkest Guy</h3>
+                        <img id="drunkest-img" class="img-fluid d-block rounded mb-4" src="Content/Images/Drinkers/busackert.jpg" />
+                        <h2 class="text-uppercase m-0">Timbo</h2>
+                        <h5 class="text-uppercase m-0">33 Drinks</h5>
+                        <h5 class="text-uppercase m-0">11.03% of total</h5>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Footer Section -->
-        <footer class="text-center">
-            <p>🍻 Cheers! 🍻</p>
-        </footer>
+        <hr class="invisible my-1" />
 
-        <!-- Bootstrap JS Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="scripts/QuestForTheBest_Stats.js"></script>
-    </body>
+        <!-- Highest Cocktail/Bar Scores Given -->
+        <div class="section col" style="display: none;">
+            <h2 class="section-title">Highest Average Scores For a Cocktail/Bar Combo</h2>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Cocktail</th>
+                            <th>Bar</th>
+                            <th>Average Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblHighestCocktailScores">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="invisible my-5" />
+
+        <!-- Highest Scores Given -->
+        <div class="section col">
+            <h2 class="section-title plateia">Highest Scores Given</h2>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Quester</th>
+                            <th>Score</th>
+                            <th>Cocktail</th>
+                            <th>Bar</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblHighestScores">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="invisible my-5" />
+
+        <!-- Average Score Per Cocktail -->
+        <div class="section">
+            <h2 class="section-title plateia">Average Score By Cocktail</h2>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Cocktail</th>
+                            <th>Average Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblScoresByCocktail">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="invisible my-5" />
+
+        <!-- Average Score Per Person -->
+        <div class="section">
+            <h2 class="section-title plateia">Average Score By Quester</h2>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Quester</th>
+                            <th>Average Score</th>
+                            <th>Cocktails Drank</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblScoresByQuester">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <hr class="invisible my-5" />
+
+        <!-- Average Score Per Bar -->
+        <div class="section">
+            <h2 class="section-title plateia">Average Score By Bar</h2>
+            <div class="table-responsive">
+                <table class="table table-dark table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Bar</th>
+                            <th>Average Score</th>
+                            <th>Times Visited</th>
+                            <th>Cocktails Drank</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblScoresByBar">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Back to Homepage Button -->
+    <div class="container text-center my-4">
+        <a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-center">
+        <p>🍻 Cheers! 🍻</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts/QuestForTheBest_Stats.js"></script>
+</body>
 </html>

@@ -273,15 +273,105 @@ namespace QuestForTheBestApi.Data
 			return ret;
 		}
 
+		public static List<object> GetQuestWinners()
+		{
+			var ret = new List<object>();
+
+			using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
+			{
+				using (var cmd = sqlConn.CreateCommand())
+				{
+					cmd.CommandText = @"
+						WITH cte_CocktailPlacements AS (
+							SELECT c.CocktailName
+									,b.BarName
+									,MAX(q.DateOfQuest) AS DateOfQuest
+									,STR(AVG(s.Score), 4, 2) AS AverageScore
+									,ROW_NUMBER() OVER (PARTITION BY q.QuestId ORDER BY STR(AVG(s.Score), 4, 2) DESC) AS Placement
+								FROM Scores s
+									INNER JOIN Cocktails c
+										ON s.CocktailId = c.CocktailId
+									INNER JOIN Bars b
+										ON s.BarId = b.BarId
+									INNER JOIN Quests q
+										ON s.QuestId = q.QuestId
+								GROUP BY q.QuestId, c.CocktailId, c.CocktailName, b.BarId, b.BarName
+						)
+						SELECT *
+							FROM cte_CocktailPlacements
+							WHERE Placement = 1
+							ORDER BY DateOfQuest ASC;";
+
+					sqlConn.Open();
+
+					using var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						ret.Add(new
+						{
+							CocktailName = dr.GetString(0),
+							BarName = dr.GetString(1),
+							DateOfQuest = dr.GetDateTime(2),
+							AverageScore = dr.GetString(3)
+						});
+					}
+				}
+			}
+
+			return ret;
+		}
+
+		public static object GetDrunkestGuy()
+		{
+			using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
+			{
+				using (var cmd = sqlConn.CreateCommand())
+				{
+					cmd.CommandText = @"
+						WITH cte_QuesterScoreCounts AS (
+							SELECT q.QuesterId, COUNT(s.Score) AS QuesterScoreCount
+								FROM Scores s
+									INNER JOIN Questers q
+										ON s.QuesterId = q.QuesterId
+								GROUP BY q.QuesterId
+						)
+						SELECT q.QuesterName
+								,q.QuesterNickname
+								,qsc.QuesterScoreCount
+								,(SELECT CAST(CAST(qsc.QuesterScoreCount AS decimal) / COUNT(*) * 100 AS decimal(4, 2)) FROM Scores) AS PercentageOfTotal
+							FROM cte_QuesterScoreCounts qsc
+								INNER JOIN Questers q
+									ON qsc.QuesterId = q.QuesterId
+							ORDER BY qsc.QuesterScoreCount DESC;";
+
+					sqlConn.Open();
+
+					using var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						return new
+						{
+							QuesterName = dr.GetString(0),
+							QuesterNickname = dr.GetString(1),
+							QuesterScoreCount = dr.GetInt32(2),
+							PercentageOfTotal = dr.GetDecimal(3)
+						};
+					}
+				}
+			}
+
+			return null;
+		}
+
 		public static List<object> GetMapData()
 		{
-            var ret = new List<object>();
+			var ret = new List<object>();
 
-            using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
-            {
-                using (var cmd = sqlConn.CreateCommand())
-                {
-                    cmd.CommandText = @"
+			using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
+			{
+				using (var cmd = sqlConn.CreateCommand())
+				{
+					cmd.CommandText = @"
 						WITH cte_AverageScores AS (
 							SELECT b.BarId, STR(AVG(s.Score), 4, 2) AS AverageScore
 								FROM Bars b
@@ -329,26 +419,26 @@ namespace QuestForTheBestApi.Data
 								AND b.Longitude IS NOT NULL
 							ORDER BY BarId;";
 
-                    sqlConn.Open();
+					sqlConn.Open();
 
-                    using var dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        ret.Add(new
-                        {
-                            BarId = dr.GetInt16(0),
-                            Latitude = dr.GetDecimal(1).ToString(),
-                            Longitude = dr.GetDecimal(2).ToString(),
-                            BarName = dr.GetString(3),
-                            AverageScore = dr.GetString(4),
-                            BestCocktail = dr.GetString(5),
-                            TimesVisited = dr.GetInt32(6),
-                        });
-                    }
-                }
-            }
+					using var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						ret.Add(new
+						{
+							BarId = dr.GetInt16(0),
+							Latitude = dr.GetDecimal(1).ToString(),
+							Longitude = dr.GetDecimal(2).ToString(),
+							BarName = dr.GetString(3),
+							AverageScore = dr.GetString(4),
+							BestCocktail = dr.GetString(5),
+							TimesVisited = dr.GetInt32(6),
+						});
+					}
+				}
+			}
 
-            return ret;
-        }
+			return ret;
+		}
 	}
 }

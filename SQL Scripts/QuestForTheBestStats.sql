@@ -129,3 +129,41 @@ SELECT b.BarId
 			ON b.BarId = btv.BarId
 	WHERE Placement = 1
 	ORDER BY BarId;
+
+-- Quest Winners
+WITH cte_CocktailPlacements AS (
+	SELECT c.CocktailName
+			,b.BarName
+			,MAX(q.DateOfQuest) AS DateOfQuest
+			,STR(AVG(s.Score), 4, 2) AS AverageScore
+			,ROW_NUMBER() OVER (PARTITION BY q.QuestId ORDER BY STR(AVG(s.Score), 4, 2) DESC) AS Placement
+		FROM Scores s
+			INNER JOIN Cocktails c
+				ON s.CocktailId = c.CocktailId
+			INNER JOIN Bars b
+				ON s.BarId = b.BarId
+			INNER JOIN Quests q
+				ON s.QuestId = q.QuestId
+		GROUP BY q.QuestId, c.CocktailId, c.CocktailName, b.BarId, b.BarName
+)
+SELECT *
+	FROM cte_CocktailPlacements
+	WHERE Placement = 1
+	ORDER BY DateOfQuest ASC;
+
+-- Drunkest Guy
+WITH cte_QuesterScoreCounts AS (
+SELECT q.QuesterId, COUNT(s.Score) AS QuesterScoreCount
+	FROM Scores s
+		INNER JOIN Questers q
+			ON s.QuesterId = q.QuesterId
+	GROUP BY q.QuesterId
+)
+SELECT TOP (1) q.QuesterName
+		,q.QuesterNickname
+		,qsc.QuesterScoreCount
+		,(SELECT CAST(CAST(qsc.QuesterScoreCount AS decimal) / COUNT(*) * 100 AS decimal(4, 2)) FROM Scores) AS PercentageOfTotal
+	FROM cte_QuesterScoreCounts qsc
+		INNER JOIN Questers q
+			ON qsc.QuesterId = q.QuesterId
+	ORDER BY qsc.QuesterScoreCount DESC;

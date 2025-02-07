@@ -33,12 +33,13 @@ async function getQuestWinners(){
     
     renderQuestWinnersHeroDisplay(data);
 
-    // data.forEach((stat) => {
-	// 	  document.getElementById("tblQuestWinners").insertAdjacentHTML("beforeend", `<tr><td>${stat.cocktailName}</td><td>${stat.barName}</td><td>${stat.averageScore}</td><td>${new Date(stat.dateOfQuest).toLocaleDateString()}</td></tr>`)
-    // });
+    data.forEach((stat) => {
+		  document.getElementById("tblQuestWinners").insertAdjacentHTML("beforeend", `<tr><td>${stat.cocktailName}</td><td>${stat.barName}</td><td>${stat.averageScore}</td><td>${new Date(stat.dateOfQuest).toLocaleDateString()}</td></tr>`)
+    });
 }
 
 function renderQuestWinnersHeroDisplay(data){
+    //-- Get last 3 quest winners
     for(let i = data.length - 1; i > data.length - 4; i--){
         document.getElementById("quest-winners-row").insertAdjacentHTML("beforeend", `
             <div class="col-lg-4">

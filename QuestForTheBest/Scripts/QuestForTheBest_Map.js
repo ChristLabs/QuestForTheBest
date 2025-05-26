@@ -10,9 +10,9 @@ async function getMapData(){
 function renderMap(mapData){
 	var map = L.map("mapDiv").setView([47.0455, -122.8989], 16);
 
-	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+		attribution: "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
 	}).addTo(map);
 	
 	mapData.forEach((data) => {

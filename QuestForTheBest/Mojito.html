@@ -1,167 +1,371 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<title>The History of the Mojito Cocktail</title>
-		
-		<link href="Content/CSS/bootstrap.min.css" rel="stylesheet">
-		
-		<style>
-			body {
-                background: #1c1c1c;
-                color: #d1d1d1;
-                font-family: 'Arial', sans-serif;
-            }
-            header {
-				background: url('Content/Images/Mojito_banner.webp') no-repeat center center/cover;
-                height: 350px;
-                text-align: center;
-                color: #fff;
-                position: relative;
-            }
-            header .overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.5);
-            }
-            header h1 {
-                position: relative;
-                z-index: 2;
-                margin-top: 120px;
-            }
-            .section-title {
-                color: #7fffd4;
-                margin-bottom: 20px;
-            }
-            .section {
-                background: #333;
-                border-radius: 10px;
-                padding: 20px;
-                margin: 15px 0;
-            }
-            .bg-accent {
-                background: #444;
-            }
-            .list-group-item {
-                background: #444;
-                color: #7fffd4;
-            }
-            footer {
-                background: #111;
-                color: #d1d1d1;
-                padding: 20px 0;
-            }
-		</style>
-	</head>
-	<body>
-		<!-- Header Section -->
-		<header class="d-flex align-items-center justify-content-center">
-			<div class="overlay"></div>
-			<div class="container text-center text-light position-relative">
-				<h1 class="display-4 fw-bold">The History of the Mojito</h1>
-				<p class="lead">"A refreshing Cuban classic with minty charm."</p>
-			</div>
-		</header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest For The Best - The History of the Mojito Cocktail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet" />
+    <link href="Content/CSS/quest.css" rel="stylesheet" />
 
-		<!-- Origin Section -->
-		<section class="container my-5">
-			<div class="section">
-				<h2 class="section-title text-center">Place of Origin</h2>
-                <p>The Mojito hails from Cuba, with roots tracing back to the 16th century. It's said to have evolved from a local medicinal drink made with lime, sugar, and aguardiente, later refined into the rum-based cocktail we enjoy today. The Mojito became internationally famous thanks to its crisp, cooling profile and a boost from Ernest Hemingway's fondness for it.</p>
-			</div>
-		</section>
+    <style>
+        .girassol-regular {
+            font-family: "Girassol", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-		<!-- Ingredients Section -->
-		<section class="container my-5">
-			<div class="section bg-accent">
-				<h2 class="section-title text-center">Typical Ingredients</h2>
-				<ul class="list-group list-group-flush text-center">
-					<li class="list-group-item">2 oz White Rum</li>
-					<li class="list-group-item">1 oz Fresh Lime Juice</li>
-					<li class="list-group-item">2 tsp Sugar</li>
-					<li class="list-group-item">6-8 Fresh Mint Leaves</li>
-					<li class="list-group-item">Soda Water (to top)</li>
-					<li class="list-group-item">Mint Sprig and Lime Wheel (for garnish)</li>
-				</ul>
-			</div>
-		</section>
+        .hammersmith-one-regular {
+            font-family: "Hammersmith One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-		<!-- How to Make Section -->
-		<section class="container my-5">
-			<div class="section">
-				<h2 class="section-title text-center">How to Make a Mai Tai</h2>
-				<div class="row justify-content-center">
-					<div class="col-md-8">
-						<ol class="list-group list-group-numbered">
-                            <li class="list-group-item">In a glass, gently muddle the mint leaves with sugar and lime juice.</li>
-                            <li class="list-group-item">Add white rum and stir to combine.</li>
-                            <li class="list-group-item">Fill the glass with ice and top with soda water.</li>
-                            <li class="list-group-item">Stir gently and garnish with a mint sprig and lime wedge.</li>
-						</ol>
-					</div>
-				</div>
-			</div>
-		</section>
+        .noticia-text-regular {
+            font-family: "Noticia Text", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-		<!-- Glassware Section -->
-		<section class="container my-5">
-			<div class="section">
-				<h2 class="section-title text-center">Typical Glassware</h2>
-                <p>The Mojito is commonly served in a highball or Collins glass. These tall glasses provide ample space for muddling and stacking ingredients with ice, showcasing the cocktail's refreshing mint and lime presentation.</p>
-			</div>
-		</section>
+        .noticia-text-bold {
+            font-family: "Noticia Text", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
 
-		<!-- Influence Section -->
-		<section class="container my-5">
-			<div class="section bg-accent">
-				<h2 class="section-title text-center">Influence on Other Cocktails</h2>
-                <p>The Mojito's structure of spirit, citrus, sugar, and herb has inspired a variety of riffs across cultures. It's a base for fruit-forward Mojitos like strawberry, mango, or coconut, and has even led to variations with different spirits like tequila or gin.</p>
-			</div>
-		</section>
+        .noticia-text-regular-italic {
+            font-family: "Noticia Text", serif;
+            font-weight: 400;
+            font-style: italic;
+        }
 
-		<!-- Riffs Section -->
-		<section class="container my-5">
-			<div class="section">
-				<h2 class="section-title text-center">Potential Riffs</h2>
-				<ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item"><strong>Strawberry Mojito:</strong> Add muddled strawberries for fruity brightness.</li>
-                    <li class="list-group-item"><strong>Coconut Mojito:</strong> Use coconut water or coconut rum for tropical richness.</li>
-                    <li class="list-group-item"><strong>Gin Mojito:</strong> Substitute gin for rum to give it a botanical twist.</li>
-                  </ul>
-			</div>
-		</section>
-			
-		<!-- Score Section -->
-		<section class="container my-5">
-			<div class="section">
-				<h2 class="section-title text-center">Cocktail Rating</h2>
-				<div class="table-responsive">
-					<p class="text-center">TBD</p>
-                    <!-- <table class="table table-dark table-striped table-bordered table-hover">
-						<thead>
-						</thead>
-						<tbody>
-						</tbody>
-					</table> -->
-				</div>
-			</div>
-		</section>
+        .noticia-text-bold-italic {
+            font-family: "Noticia Text", serif;
+            font-weight: 700;
+            font-style: italic;
+        }
 
+        body {
+            background: #9e7449;
+            background: url('Content/Images/TilingWood.jpg') repeat;
+            font-family: "Noticia Text",Georgia,Cambria,"Times New Roman",Times,serif;
+        }
 
-		<!-- Footer Section -->
-        <div class="container text-center my-4">
-            <a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
+        p {
+            font-family: "Noticia Text",Georgia,Cambria,"Times New Roman",Times,serif;
+            text-align: left;
+        }
+
+        #hero {
+            background: url('Content/Images/Mojito_banner.webp') no-repeat center center/cover;
+            position: relative;
+            box-shadow: 0 1px 20px rgba(0,0,0,.7);
+        }
+
+        #hero .display-1 {
+            font-size: calc(6rem + 4.5vw);
+            letter-spacing: calc(.5rem + 1vw);
+            line-height: calc(6rem + 1vw);
+            text-shadow: 0 0 5px #adff9d, 6px 5px 0 #0d1103, 11px 10px 0 #274116;
+        }
+
+        #hero .display-5 {
+            text-transform: uppercase;
+            font-size: 2.5rem;
+            text-shadow: 0 0 5px #adff9d, 0 0 4px #000, 0 0 8px #000;
+        }
+
+        #hero h4 {
+            text-shadow: 0 0 4px #000, 0 0 8px #000;
+        }
+
+        @media (min-width: 1200px) {
+            #hero .display-1 {
+                font-size: 8rem;
+                letter-spacing: 1rem;
+                line-height: 6rem;
+            }
+        }
+
+        .darken-overlay {
+            background: rgba(0,0,0,.3);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            color: #e1f28b;
+            letter-spacing: 0.1rem;
+            text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+            text-transform: uppercase;
+        }
+
+        .section-title:before {
+            content: '------------------------------';
+            white-space: nowrap;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateX(-100%);
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            padding-right: 2rem;
+            opacity: .3;
+        }
+
+        .section-title:after {
+            content: '------------------------------';
+            white-space: nowrap;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            padding-left: 2rem;
+            opacity: .3;
+        }
+
+        .section {
+            background: rgba(51,66,49,.8);
+            color: #eaeaea;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid rgba(225,242,139,.3);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .section.shadow-lg {
+            box-shadow: 0 5px 5px rgba(0,0,0,.3),0 15px 15px rgba(0,0,0,.4) !important;
+        }
+
+        .bg-accent {
+            background: #325246;
+            border: 1px solid rgba(107,195,176,.5)
+        }
+
+        .recipe-table {
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .recipe-table td {
+            vertical-align: top;
+            padding-bottom: 0.4rem;
+        }
+
+        .recipe-table td:nth-child(1) {
+            min-width: 8rem;
+        }
+
+        .recipe-table td:nth-child(2) {
+            color: #84eeca;
+        }
+
+        @media (min-width: 768px) {
+            .recipe-table {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .recipe-instructions {
+                font-size: 1.4rem;
+            }
+        }
+
+        .riffs-riff {
+            font-weight: bold;
+        }
+
+        @media (min-width: 768px) {
+            .riffs-riff {
+                font-size: 1.4rem;
+            }
+        }
+
+        .riffs-img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 1rem;
+        }
+
+        .list-group {
+            --bs-list-group-border-color: #666;
+            font-size: 1.2rem;
+        }
+
+        .list-group-item {
+            background: #444;
+            color: #ffb245;
+        }
+
+        .list-group-item.active {
+            background: #8B0000;
+            border-color: #8B0000;
+        }
+
+        .bullet {
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        footer {
+            background: #222;
+            color: #d1d1d1;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="darken-overlay"></div>
+        <div class="container text-center text-light position-relative">
+            <div class="jumbotron py-5">
+                <hr />
+                <div class="ribbon hammersmith-one-regular fw-bold text-white text-uppercase mx-auto">&nbsp;Quest For The Best&nbsp;</div>
+                <div class="py-4"></div>
+                <h2 class="display-5 hammersmith-one-regular mb-0">The History of the</h2>
+                <h1 class="display-1 girassol-regular text-uppercase">Mojito</h1>
+                <div class="py-4"></div>
+                <h4 class="hammersmith-one-regular">"A refreshing Cuban classic with minty charm."</h4>
+                <hr />
+            </div>
         </div>
-		<footer class="text-center">
-			<p class="mb-0"><strong>Quest For The Best</strong> &mdash; Mojito</p>
-		</footer>
+    </section>
 
-		<!-- Bootstrap JS Bundle with Popper -->
-		<script src="Scripts/bootstrap.bundle.min.js"></script>
-	</body>
+    <!-- Origin Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3 shadow-lg">
+            <h2 class="section-title text-center hammersmith-one-regular mb-4">Place of Origin</h2>
+            <p class="px-md-5 px-3">
+                The Mojito hails from Cuba, with <strong>roots tracing back to the 16th century</strong>. It's said to have evolved from a local medicinal drink made with lime, sugar, and aguardiente, later refined into the rum-based cocktail we enjoy today. The Mojito became internationally famous thanks to its crisp, cooling profile and a boost from Ernest Hemingway's fondness for it.
+            </p>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-0 px-3 shadow-lg">
+            <h2 class="section-title text-center hammersmith-one-regular mb-3">Recipe</h2>
+            <div class="row justify-content-center bg-accent rounded py-3 mb-3">
+                <div class="col-md-8">
+                    <table class="recipe-table mx-auto">
+                        <tr>
+                            <td>2 oz</td>
+                            <td><strong>White Rum</strong></td>
+                        </tr>
+                        <tr>
+                            <td>1 oz</td>
+                            <td><strong>Fresh Lime Juice</strong></td>
+                        </tr>
+                        <tr>
+                            <td>2 tsp</td>
+                            <td><strong>Sugar</strong></td>
+                        </tr>
+                        <tr>
+                            <td>6-8</td>
+                            <td><strong>Fresh Mint Leaves</strong></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><strong>Soda Water</strong> (to top)</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><strong>Mint Sprig</strong> and <strong>Lime Wheel</strong> (for garnish)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- How to Make Section -->
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="recipe-instructions text-center">
+                        Muddle mint leaves with sugar and lime juice.
+                        Stir in white rum, fill with ice and top with soda water.
+                        Garnish with a mint sprig and lime wedge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glassware Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3 shadow-lg">
+            <h2 class="section-title text-center hammersmith-one-regular mb-3">Glassware</h2>
+            <p class="px-md-5 px-3">The Mojito is <strong>commonly served in a highball or Collins glass</strong>. These tall glasses provide ample space for muddling and stacking ingredients with ice, showcasing the cocktail's refreshing mint and lime presentation.</p>
+        </div>
+    </section>
+
+
+    <!-- Influence Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3 bg-accent">
+            <h2 class="section-title text-center hammersmith-one-regular mb-3">Influence on Other Cocktails</h2>
+            <p class="px-md-5 px-3">The Mojito's structure of spirit, citrus, sugar, and herb has inspired a variety of riffs across cultures. It's a base for fruit-forward Mojitos like strawberry, mango, or coconut, and has even led to variations with different spirits like tequila or gin.</p>
+        </div>
+    </section>
+
+    <!-- Riffs Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3 shadow-lg">
+            <h2 class="section-title text-center hammersmith-one-regular mb-3">Potential Riffs</h2>
+            <p class="text-center">
+                <img src="Content/Images/StrawberryMojito.webp" class="d-block mx-auto riffs-img" alt="Strawberry Mojito" width="512" height="512" />
+                <span class="riffs-riff">Strawberry Mojito</span>
+                <br />
+                Add muddled strawberries for fruity brightness.
+            </p>
+            <p class="text-center">
+                <img src="Content/Images/CoconutMojito.webp" class="d-block mx-auto riffs-img" alt="Coconut Mojito" width="512" height="512" />
+                <span class="riffs-riff">Coconut Mojito</span>
+                <br />
+                Use coconut water or coconut rum for tropical richness.
+            </p>
+            <p class="text-center">
+                <img src="Content/Images/GinMojito.webp" class="d-block mx-auto riffs-img" alt="Gin Mojito" width="512" height="512" />
+                <span class="riffs-riff">Gin Mojito</span>
+                <br />
+                Substitute gin for rum to give it a botanical twist.
+            </p>
+        </div>
+    </section>
+
+    <!-- Score Section -->
+    <!-- Score Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3 shadow-lg">
+            <h2 class="section-title text-center hammersmith-one-regular mb-3">Mojito Scores</h2>
+            <div class="table-responsive">
+                <!--<table class="table table-dark table-striped table-bordered table-hover">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>-->
+                <h3 class="text-center">TBD</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <div class="container text-center my-4">
+        <a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
+    </div>
+    <footer class="text-center">
+        <p class="mb-0"><strong>Quest For The Best</strong> &mdash; Mojito</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+</body>
 </html>

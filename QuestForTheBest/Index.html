@@ -7,6 +7,7 @@
 		<title>Quest For The Best</title>
 		
 		<link href="Content/CSS/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 		<style>
 			body {
 				background-color: #1c1c1c;
@@ -36,6 +37,12 @@
 				color: #e7c697;
 				margin-bottom: 20px;
 			}
+			.section {
+				background: #333;
+				border-radius: 10px;
+				padding: 20px;
+				margin: 15px 0;
+			}
 			.card {
 				background-color: #333;
 				color: #e7c697;
@@ -51,6 +58,21 @@
 				padding: 20px;
 				text-align: center;
 			}
+
+			#mapDiv{
+				height: 70vh;
+			}
+
+            .btn-bottom-nav {
+                color: #e7c697;
+                border-color: #e7c697;
+            }
+
+                .btn-bottom-nav:hover {
+                    color: #1C1C1C;
+                    background-color: #e7c697;
+                    border-color: #e7c697;
+                }
 		</style>
 	</head>
 	<body>
@@ -68,97 +90,21 @@
 		<section class="container my-5">
 			<h2 class="section-title text-center">Quests</h2>
 			<div id="quest-card-container" class="row row-cols-1 row-cols-md-3 g-4">
-
-				<!-- Margarita Cocktail Card -->
-				<div class="col">
-					<a href="Margarita.html" class="text-decoration-none">
-						<div class="card h-100 text-center p-3">
-							<img src="Content/Images/Margarita_card.webp" class="card-img-top" alt="Margarita Cocktail">
-							<div class="card-body">
-								<h5 class="card-title">Margarita</h5>
-								<p class="text-center fst-italic">05/19/2023</p>
-								<p class="card-text">A vibrant Mexican cocktail. Discover how to make the perfect Margarita.</p>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- Moscow Mule Cocktail Card -->
-				<div class="col">
-					<a href="MoscowMule.html" class="text-decoration-none">
-						<div class="card h-100 text-center p-3">
-							<img src="Content/Images/MoscowMule_card.webp" class="card-img-top" alt="Moscow Mule Cocktail">
-							<div class="card-body">
-								<h5 class="card-title">Moscow Mule</h5>
-								<p class="text-center fst-italic">10/06/2023</p>
-								<p class="card-text">A refreshing, spicy, and tangy classic. Discover how to make the perfect Moscow Mule.</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				
-				<!-- Mai Tai Cocktail Card -->
-				<div class="col">
-					<a href="MaiTai.html" class="text-decoration-none">
-						<div class="card h-100 text-center p-3">
-							<img src="Content/Images/MaiTai_card.webp" class="card-img-top" alt="Mai Tai Cocktail">
-							<div class="card-body">
-								<h5 class="card-title">Mai Tai</h5>
-								<p class="text-center fst-italic">01/19/2024</p>
-								<p class="card-text">A classic refreshing cocktail. Learn how to craft the perfect Mai Tai.</p>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- Whiskey Sour Cocktail Card -->
-				<div class="col">
-					<a href="WhiskeySour.html" class="text-decoration-none">
-						<div class="card h-100 text-center p-3">
-							<img src="Content/Images/WhiskeySour_card.webp" class="card-img-top" alt="Whiskey Sour Cocktail">
-							<div class="card-body">
-								<h5 class="card-title">Whiskey Sour</h5>
-								<p class="text-center fst-italic">04/05/2024</p>
-								<p class="card-text">A balanced, sweet, and sour cocktail. Learn about the Whiskey Sour.</p>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- Manhattan Cocktail Card -->
-				<div class="col">
-					<a href="Manhattan.html" class="text-decoration-none">
-						<div class="card h-100 text-center p-3">
-							<img src="Content/Images/Manhattan_card.webp" class="card-img-top" alt="Manhattan Cocktail">
-							<div class="card-body">
-								<h5 class="card-title">Manhattan</h5>
-								<p class="text-center fst-italic">10/01/2024</p>
-								<p class="card-text">The sophisticated classic from New York City. Learn more about its history and how to make it.</p>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- Hot Toddy Cocktail Card -->
-				<div class="col">
-					<a href="HotToddy.html" class="text-decoration-none">
-						<div class="card h-100 text-center p-3">
-							<img src="Content/Images/HotToddy_card.webp" class="card-img-top" alt="Whiskey Sour Cocktail">
-							<div class="card-body">
-								<h5 class="card-title">Hot Toddy</h5>
-								<p class="text-center fst-italic">02/07/2025</p>
-								<p class="card-text">Warm, soothing, and perfectly spiced. Learn more about this cozy classic.</p>
-							</div>
-						</div>
-					</a>
-				</div>
+				<!-- Dynamic Content -->
 			</div>
 		</section>
 
+        <section class="container my-5">
+			<div class="section">
+				<h2 class="section-title text-center">Map</h2>
+				<div id="mapDiv"></div>
+			</div>
+        </section>
+
 		<!-- Footer Section -->
 		<div class="container text-center my-4 gx-5 justify-content-center">
-			<a href="QuestStats.html" class="btn btn-outline-warning">Cock Stats <i class='fas fa-ruler'></i></a>
-			<a href="Gallery.html" class="btn btn-outline-warning">Gallery</a>
+			<a href="QuestStats.html" class="btn btn-outline-light btn-bottom-nav">Cock Stats <i class='fas fa-ruler'></i></a>
+			<a href="Gallery.html" class="btn btn-outline-light btn-bottom-nav">Gallery</a>
 		</div>
 		<footer>
 			<p>🍻 Cheers! 🍻</p>
@@ -167,6 +113,8 @@
 		<!-- Bootstrap JS Bundle with Popper -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="Scripts/fontawesome-all.min.js"></script>
-		<!-- <script src="Scripts/QuestForTheBest.js"></script> -->
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+		<script src="Scripts/QuestForTheBest.js"></script>
+		<script src="Scripts/QuestForTheBest_Map.js"></script>
 	</body>
 </html>

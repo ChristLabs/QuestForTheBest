@@ -68,10 +68,10 @@ VALUES ('Christian Armstrong', 'Christ')
 		,('Kriston Trevino', 'Kriston')
 		,('Robert Shields', 'Bobby')
 		,('Collin Savunen', 'Collin')
-		,('Shawn', NULL)
+		,('Luna', NULL)
 		,('Autumn Lavender', 'Autumn')
 		,('Lindsey', NULL)
-		,('Kelsey Bonnicksen', NULL)
+		,('Kelsey Bonnicksen', 'Kelsinki')
 		,('Kat Griffin', 'Kat')
 		,('Sarah Harlan', 'Sarah')
 		,('Bonnie Witt', 'Bonbo')
@@ -169,7 +169,7 @@ DECLARE @AngelaNoyen smallint = (SELECT QuesterId FROM Questers WHERE QuesterNam
 DECLARE @KristonTrevino smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Kriston Trevino');
 DECLARE @RobertShields smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Robert Shields');
 DECLARE @CollinSavunen smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Collin Savunen');
-DECLARE @Shawn smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Shawn');
+DECLARE @Luna smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Luna');
 DECLARE @AutumnLavender smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Autumn Lavender');
 DECLARE @Lindsey smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Lindsey');
 DECLARE @KelseyBonnicksen smallint = (SELECT QuesterId FROM Questers WHERE QuesterName = 'Kelsey Bonnicksen');
@@ -250,7 +250,7 @@ VALUES --,(@Margarita, @, @, 0)
 		,(@MoscowMuleQuest, @MoscowMule, @Well80, @RobertShields, 6)
 		,(@MoscowMuleQuest, @MoscowMule, @Well80, @PeterCaderoSmith, 7.2)
 		,(@MoscowMuleQuest, @MoscowMule, @Well80, @CollinSavunen, 5)
-		,(@MoscowMuleQuest, @MoscowMule, @Well80, @Shawn, 7.5)
+		,(@MoscowMuleQuest, @MoscowMule, @Well80, @Luna, 7.5)
 		,(@MoscowMuleQuest, @MoscowMule, @Well80, @AutumnLavender, 8)
 		,(@MoscowMuleQuest, @MoscowMule, @Cryptatropa, @TimBusacker, 7.8)
 		,(@MoscowMuleQuest, @MoscowMule, @Cryptatropa, @JamesWitt, 8)
@@ -290,6 +290,7 @@ VALUES --,(@Margarita, @, @, 0)
 		,(@MoscowMuleQuest, @MoscowMule, @TheSpar, @KristonTrevino, 1)
 		,(@MoscowMuleQuest, @MoscowMule, @TheSpar, @RobertShields, 4)
 		,(@MoscowMuleQuest, @MoscowMule, @TheSpar, @PeterCaderoSmith, 0.9)
+		,(@MoscowMuleQuest, @MoscowMule, @TheSpar, @Lindsey, 3)
 		,(@MoscowMuleQuest, @MoscowMule, @TheSpar, @CollinSavunen, 6)
 		,(@MoscowMuleQuest, @MoscowMule, @TheMark, @TimBusacker, 6)
 		,(@MoscowMuleQuest, @MoscowMule, @TheMark, @JamesWitt, 6)

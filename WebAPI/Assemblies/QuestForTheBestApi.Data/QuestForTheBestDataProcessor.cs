@@ -295,6 +295,7 @@ namespace QuestForTheBestApi.Data
 										ON s.BarId = b.BarId
 									INNER JOIN Quests q
 										ON s.QuestId = q.QuestId
+											AND s.CocktailId = q.PrimaryCocktailId
 								GROUP BY q.QuestId, c.CocktailId, c.CocktailName, b.BarId, b.BarName
 						)
 						SELECT *

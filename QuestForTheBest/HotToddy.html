@@ -166,6 +166,19 @@
             color: #d1d1d1;
             padding: 20px 0;
         }
+		
+		table td:first-child{
+		  cursor: pointer;
+		  transition: background-color 0.2s ease;
+		}
+
+		table tr:last-child td:first-child{
+		  cursor: default;
+		}
+
+		table tr:last-child td:first-child:hover {
+		  background-color: transparent;
+		}
     </style>
 </head>
 <body>
@@ -345,5 +358,30 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+		const tables = document.querySelectorAll("table");
+
+		tables.forEach(table => {
+			table.addEventListener("click", (e) => {
+				const cell = e.target.closest("td");
+				
+				if (!cell) return;
+
+					const row = cell.parentElement;
+					const cells = Array.from(row.children);
+					const colIndex = cells.indexOf(cell);
+
+					const allRows = Array.from(table.rows);
+					const isLastRow = row === allRows[allRows.length - 1];
+
+					if (colIndex === 0 && !isLastRow) {
+						window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+					}
+				});
+			});
+		});
+	</script>
 </body>
 </html>

@@ -222,6 +222,28 @@
             color: #d1d1d1;
             padding: 20px 0;
         }
+        
+        .tooltip-inner {
+            padding: 0;
+            opacity: 1 !important;
+        }
+
+        .tooltip.show {
+            opacity: 1 !important;
+        }
+
+        .tooltip img {
+            max-width: 500px;
+            max-height: 500px;
+            width: auto;
+            height: auto;
+            display: block;
+        }
+
+        #george-easter-egg{
+            text-decoration: none;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -371,7 +393,14 @@
                         <tr><td>Christ</td><td>7.4</td><td>5</td><td>7.8</td><td>7.2</td><td>7</td><td>7.3</td><td>3</td><td>6.70</td><td>6.43</td></tr>
                         <tr><td>Collin</td><td>8</td><td>6.5</td><td>7.5</td><td></td><td></td><td></td><td></td><td></td><td>7.33</td></tr>
                         <tr><td>Eric</td><td></td><td></td><td>8.1</td><td>8</td><td>8.1</td><td>6.8</td><td>4</td><td></td><td>7.00</td></tr>
-                        <tr><td>George</td><td>7.5</td><td>6.9</td><td>8</td><td>7</td><td>7</td><td>7.8</td><td>3</td><td></td><td>6.74</td></tr>
+                        <tr data-bs-toggle="tooltip" data-bs-html="true" title="<img src='Content/Images/Drinkers/tanasseg.jpg'>">
+                            <td>
+                                George
+                            </td>
+                            <td>7.5</td>
+                            <td>6.9</td>
+                            <td>8</td>
+                            <td>7</td><td>7</td><td>7.8</td><td>3</td><td></td><td>6.74</td></tr>
                         <tr><td>Jahrel</td><td>7</td><td>7.5</td><td>7.7</td><td>8</td><td>6</td><td>8</td><td>5</td><td></td><td>7.03</td></tr>
                         <tr><td>Jimbo</td><td>6</td><td>6.5</td><td>7</td><td>7.5</td><td>5.4</td><td>6</td><td>4</td><td></td><td>6.06</td></tr>
                         <tr><td>John</td><td>7</td><td>6</td><td>6.5</td><td>5</td><td></td><td></td><td>2</td><td></td><td>5.30</td></tr>
@@ -400,5 +429,9 @@
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="Scripts/bootstrap.bundle.min.js"></script>
 	<script src="Scripts/fontawesome-all.min.js"></script>
+    <script>
+      const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      tooltipTriggerList.map(el => new bootstrap.Tooltip(el))
+    </script>
 </body>
 </html>

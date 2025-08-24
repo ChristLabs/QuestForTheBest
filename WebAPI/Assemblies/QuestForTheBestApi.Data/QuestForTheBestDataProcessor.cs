@@ -2,7 +2,6 @@
 using Microsoft.IdentityModel.Protocols;
 using System.Runtime.InteropServices;
 using QuestForTheBestApi.Data;
-using QuestForTheBestApi.Data.Models;
 
 namespace QuestForTheBestApi.Data
 {
@@ -116,36 +115,39 @@ namespace QuestForTheBestApi.Data
 			return ret;
 		}
 
-		public static List<Quest> GetQuests()
+		public static List<object> GetQuests()
 		{
-			var ret = new List<Quest>();
+			var ret = new List<object>();
 
 			using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
 			{
 				using (var cmd = sqlConn.CreateCommand())
 				{
 					cmd.CommandText = @"
-						SELECT q.QuestId
+						SELECT MIN(q.QuestId)
 								,c.CocktailId
-								,c.CocktailName
-								,c.CocktailDescription
-								,q.DateOfQuest
+								,MIN(c.CocktailName)
+								,MIN(c.CocktailDescription)
+								,STRING_AGG(q.DateOfQuest, ',')
 							FROM Quests q
 								INNER JOIN Cocktails c
-									ON q.PrimaryCocktailId = c.CocktailId;";
+									ON q.PrimaryCocktailId = c.CocktailId
+							GROUP BY c.CocktailId
+							ORDER BY MIN(q.DateOfQuest);";
 
 					sqlConn.Open();
 
 					using var dr = cmd.ExecuteReader();
 					while (dr.Read())
 					{
-						ret.Add(new Quest()
+						var dateList = dr.GetString(4).Split(',').Select(x => DateTime.Parse(x));
+						ret.Add(new
 						{
 							QuestId = dr.GetInt16(0),
 							CocktailId = dr.GetInt16(1),
 							CocktailName = dr.GetString(2),
 							CocktailDescription = dr.GetString(3),
-							DateOfQuest = dr.GetDateTime(4)
+							DatesOfQuests = dateList.ToList(),
 						});
 					}
 				}

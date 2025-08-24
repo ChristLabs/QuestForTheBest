@@ -14,14 +14,17 @@ getQuests();
 
 function renderQuestCard(quest) {
     var cocktailNameNoSpaces = quest.cocktailName.replace(/\s/g, '');
-    var date = new Date(quest.dateOfQuest);
+    var dates = [];
+	quest.datesOfQuests.forEach((date) => {
+		dates.push(new Date(date));
+	});
     return `<div class="col">
 				<a href="${cocktailNameNoSpaces}.html" class="text-decoration-none">
 					<div class="card h-100 text-center p-3">
 						<img src="Content/Images/${cocktailNameNoSpaces}_card.webp" class="card-img-top" alt="${quest.cocktailName} Cocktail">
 						<div class="card-body">
 							<h5 class="card-title">${quest.cocktailName}</h5>
-                            <p class="text-center fst-italic">${date.toLocaleDateString()}</p>
+                            <p class="text-center fst-italic">${dates.map(date => date.toLocaleDateString()).join(", ")}</p>
 							<p class="card-text">${quest.cocktailDescription}</p>
 						</div>
 					</div>

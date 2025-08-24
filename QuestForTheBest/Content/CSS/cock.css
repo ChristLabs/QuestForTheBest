@@ -116,6 +116,22 @@ header .display-3 {
     margin: -2rem 0 0;
     font-size: 7rem;
 }
+    @media (max-width: 991px) {
+        #lblTotalScores {
+            font-size: 6rem;
+        }
+        #cocktail-icon {
+            font-size: 6rem;
+        }
+    }
+    @media (max-width: 330px) {
+        #lblTotalScores {
+            font-size: 4rem;
+        }
+        #cocktail-icon {
+            font-size: 4rem;
+        }
+    }
 
 #cocktail-icon {
     font-size: 8rem;

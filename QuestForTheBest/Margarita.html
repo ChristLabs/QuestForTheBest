@@ -60,6 +60,16 @@
 				color: #d1d1d1;
 				padding: 20px 0;
 			}
+
+			.quest-nav-tab
+			{
+				color: #f4d03f !important;
+				font-weight: bold;
+			}			
+				.quest-nav-tab.active
+				{
+					color: #444 !important;
+				}
 		</style>
 	</head>
 	<body>
@@ -143,104 +153,245 @@
 		<section class="container my-5">
 			<div class="section">
 				<h2 class="section-title text-center">Margarita Rating</h2>
-				<p class="text-center">Check out how others rate various Margaritas from different places.</p>
-				<div class="table-responsive">
-					<table class="table table-dark table-striped table-bordered table-hover">
-						<thead>
-							<tr>
-								<th scope="col"></th>
-								<th scope="col">Koko's</th>
-								<th scope="col">Equal Latin</th>
-								<th scope="col">Dos Hermanos</th>
-								<th scope="col">Filibuster</th>
-								<th scope="col">La Esquinita</th>
-								<th scope="col">Average</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Jimbo</td>
-								<td>7</td>
-								<td>7</td>
-								<td>8</td>
-								<td>6</td>
-								<td>6.5</td>
-								<td>6.9</td>
-							</tr>
-							<tr>
-								<td>Timbo</td>
-								<td>8</td>
-								<td>8.5</td>
-								<td>9</td>
-								<td>7</td>
-								<td>7.5</td>
-								<td>8</td>
-							</tr>
-							<tr>
-								<td>Jose</td>
-								<td>6.5</td>
-								<td>7.3</td>
-								<td>7.9</td>
-								<td>6</td>
-								<td>7.2</td>
-								<td>6.98</td>
-							</tr>
-							<tr>
-								<td>Stephanie</td>
-								<td>7.5</td>
-								<td>8</td>
-								<td>8.5</td>
-								<td>6.5</td>
-								<td>7</td>
-								<td>7.5</td>
-							</tr>
-							<tr>
-								<td>Angela</td>
-								<td>7.5</td>
-								<td>9.5</td>
-								<td>8.5</td>
-								<td></td>
-								<td></td>
-								<td>8.5</td>
-							</tr>
-							<tr>
-								<td>Eric</td>
-								<td>8</td>
-								<td>8.5</td>
-								<td>8.75</td>
-								<td></td>
-								<td></td>
-								<td>8.42</td>
-							</tr>
-							<tr>
-								<td>Kriston</td>
-								<td></td>
-								<td>4</td>
-								<td>8</td>
-								<td>5</td>
-								<td>6.2</td>
-								<td>5.8</td>
-							</tr>
-							<tr>
-								<td>Pete</td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td>4</td>
-								<td></td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td><strong>Average</strong></td>
-								<td>7.42</td>
-								<td>7.48</td>
-								<td>8.38</td>
-								<td>5.75</td>
-								<td>6.88</td>
-								<td>7.18</td>
-							</tr>
-						</tbody>
-					</table>
+				<ul class="nav nav-tabs" id="questTabs" role="tablist">
+					<li class="nav-item" role="presentation">
+						<button class="nav-link quest-nav-tab active" id="quest1-tab" data-bs-toggle="tab" data-bs-target="#quest1" type="button" role="tab" aria-controls="home" aria-selected="true">5/19/2023</button>
+					</li>
+					<li class="nav-item" role="presentation">
+						<button class="nav-link quest-nav-tab" id="quest2-tab" data-bs-toggle="tab" data-bs-target="#quest2" type="button" role="tab" aria-controls="profile" aria-selected="false">8/29/2025</button>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="quest1">
+						<div class="table-responsive">
+							<table class="table table-dark table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th scope="col"></th>
+										<th scope="col">Koko's</th>
+										<th scope="col">Equal Latin</th>
+										<th scope="col">Dos Hermanos</th>
+										<th scope="col">Filibuster</th>
+										<th scope="col">La Esquinita</th>
+										<th scope="col">Average</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jimbo</td>
+										<td>7</td>
+										<td>7</td>
+										<td>8</td>
+										<td>6</td>
+										<td>6.5</td>
+										<td>6.9</td>
+									</tr>
+									<tr>
+										<td>Timbo</td>
+										<td>8</td>
+										<td>8.5</td>
+										<td>9</td>
+										<td>7</td>
+										<td>7.5</td>
+										<td>8</td>
+									</tr>
+									<tr>
+										<td>Jose</td>
+										<td>6.5</td>
+										<td>7.3</td>
+										<td>7.9</td>
+										<td>6</td>
+										<td>7.2</td>
+										<td>6.98</td>
+									</tr>
+									<tr>
+										<td>Stephanie</td>
+										<td>7.5</td>
+										<td>8</td>
+										<td>8.5</td>
+										<td>6.5</td>
+										<td>7</td>
+										<td>7.5</td>
+									</tr>
+									<tr>
+										<td>Angela</td>
+										<td>7.5</td>
+										<td>9.5</td>
+										<td>8.5</td>
+										<td></td>
+										<td></td>
+										<td>8.5</td>
+									</tr>
+									<tr>
+										<td>Eric</td>
+										<td>8</td>
+										<td>8.5</td>
+										<td>8.75</td>
+										<td></td>
+										<td></td>
+										<td>8.42</td>
+									</tr>
+									<tr>
+										<td>Kriston</td>
+										<td></td>
+										<td>4</td>
+										<td>8</td>
+										<td>5</td>
+										<td>6.2</td>
+										<td>5.8</td>
+									</tr>
+									<tr>
+										<td>Pete</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>4</td>
+										<td></td>
+										<td>4</td>
+									</tr>
+									<tr>
+										<td><strong>Average</strong></td>
+										<td>7.42</td>
+										<td>7.48</td>
+										<td>8.38</td>
+										<td>5.75</td>
+										<td>6.88</td>
+										<td>7.18</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="quest2">
+						<div class="table-responsive">
+							<table class="table table-dark table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th scope="col"></th>
+										<th scope="col">Dos Hermanos</th>
+										<th scope="col">La Esquinita</th>
+										<th scope="col">Valentina's</th>
+										<th scope="col">Filibuster</th>
+										<th scope="col">Cheeky Martini</th>
+										<th scope="col">Shiny Prize</th>
+										<th scope="col">The Bus Stop</th>
+										<th scope="col">Legends</th>
+										<th scope="col">Average</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jimbo</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Timbo</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Christ</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Jose</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Angela</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Eric</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Kriston</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Pete</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><strong>Average</strong></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

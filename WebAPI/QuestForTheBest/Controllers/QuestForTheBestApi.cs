@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using QuestForTheBest.Controllers;
 using QuestForTheBestApi.Data;
-using QuestForTheBestApi.Data.Models;
 
 namespace QuestForTheBestApi.Controllers
 {
@@ -35,7 +34,7 @@ namespace QuestForTheBestApi.Controllers
         [HttpGet]
         [Route("GetQuests")]
         [RequestExceptionHandling]
-        public List<Quest> GetQuests() => QuestForTheBestDataProcessor.GetQuests();
+        public List<object> GetQuests() => QuestForTheBestDataProcessor.GetQuests();
 
         [HttpGet]
         [Route("GetScoresByCocktail")]

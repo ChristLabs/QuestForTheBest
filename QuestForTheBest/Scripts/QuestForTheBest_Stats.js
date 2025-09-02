@@ -32,8 +32,12 @@ async function getQuestWinners(){
     const data = await response.json();
     
     renderQuestWinnersHeroDisplay(data);
+	
+	data.sort((a, b) => {		
+		return new Date(b.dateOfQuest) - new Date(a.dateOfQuest);
+	});
 
-    data.forEach((stat) => {
+	data.forEach((stat) => {
 		  document.getElementById("tblQuestWinners").insertAdjacentHTML("beforeend", `<tr><td>${stat.cocktailName}</td><td>${stat.barName}</td><td>${stat.averageScore}</td><td>${new Date(stat.dateOfQuest).toLocaleDateString()}</td></tr>`)
     });
 }

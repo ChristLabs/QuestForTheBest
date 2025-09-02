@@ -443,8 +443,13 @@
 			$(() => {
 				var url = window.location.href;
 				var activeTab = url.substring(url.indexOf("#") + 1);
-			
-				$("#quest2-tab").tab('show');
+				if($(`[data-bs-target="#${activeTab}"]`).length){
+					$(`#${activeTab}-tab`).tab('show');
+					
+					$('html, body').animate({
+                    scrollTop: $(`#${activeTab}`).offset().top
+                }, 100);
+				}
 			});
 		</script>
 	</body>

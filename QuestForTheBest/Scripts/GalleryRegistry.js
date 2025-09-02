@@ -102,5 +102,13 @@ var imageData = [
     {
         fileName: "Mojito19.jpeg",
         altText: "Timptatropa on mojito night"
+    },
+    {
+        fileName: "Margarita1.jpg",
+        altText: "The Clipper on marg night"
+    },
+    {
+        fileName: "Margarita2.jpg",
+        altText: "Christ and Bleorge on marg night at The Clipper"
     }
 ];

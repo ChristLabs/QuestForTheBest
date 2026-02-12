@@ -112,3 +112,91 @@ function getLastNameFirstInitial(fullName) {
     if (!firstName || !lastName) return 'Invalid input';
     return `${lastName}${firstName.charAt(0)}`;
 }
+
+//#region sort
+(function () {
+	function getCellValue(tr, idx) {
+		const cell = tr.children[idx];
+		return (cell ? cell.textContent : "").trim();
+	}
+
+	function detectType(values) {
+		// Try date (Date.parse), then number, else text
+		const nonEmpty = values.filter(v => v !== "");
+		if (nonEmpty.length === 0) return "text";
+
+		const dateLike = nonEmpty.every(v => !isNaN(Date.parse(v)));
+		if (dateLike) return "date";
+
+		const numberLike = nonEmpty.every(v => {
+			const n = parseFloat(v.replace(/[^0-9.\-]/g, ""));
+			return !isNaN(n);
+		});
+		if (numberLike) return "number";
+
+		return "text";
+	}
+
+	function compare(a, b, type, dir) {
+		if (type === "number") {
+			const na = parseFloat(a.replace(/[^0-9.\-]/g, ""));
+			const nb = parseFloat(b.replace(/[^0-9.\-]/g, ""));
+			return (na - nb) * dir;
+		}
+
+		if (type === "date") {
+			const da = Date.parse(a);
+			const db = Date.parse(b);
+			return (da - db) * dir;
+		}
+
+		// text
+		return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }) * dir;
+	}
+
+	function makeSortable(table) {
+		const thead = table.tHead;
+		const tbody = table.tBodies[0];
+		if (!thead || !tbody) return;
+
+		const headers = Array.from(thead.rows[0].cells);
+
+		headers.forEach((th, idx) => {
+			th.style.cursor = "pointer";
+			th.title = th.title || "Click to sort";
+
+			th.addEventListener("click", () => {
+				const rows = Array.from(tbody.rows);
+
+				// toggle direction per column
+				const current = th.getAttribute("data-sort-dir");
+				const dir = current === "asc" ? -1 : 1; // 1=asc, -1=desc
+
+				// clear other headers
+				headers.forEach(h => h.removeAttribute("data-sort-dir"));
+				th.setAttribute("data-sort-dir", dir === 1 ? "asc" : "desc");
+
+				const sampleValues = rows.map(r => getCellValue(r, idx));
+				const type = detectType(sampleValues);
+
+				rows.sort((ra, rb) => {
+					const a = getCellValue(ra, idx);
+					const b = getCellValue(rb, idx);
+					return compare(a, b, type, dir);
+				});
+
+				// re-append in sorted order
+				const frag = document.createDocumentFragment();
+				rows.forEach(r => frag.appendChild(r));
+				tbody.appendChild(frag);
+			});
+		});
+	}
+
+	// Use a selector to pick which tables become sortable:
+	// Example: add class="js-sort" to your tables.
+	document.addEventListener("DOMContentLoaded", () => {
+		document.querySelectorAll("table.js-sort").forEach(makeSortable);
+	});
+})();
+//#endregion

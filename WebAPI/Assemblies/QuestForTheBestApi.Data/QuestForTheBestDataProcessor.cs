@@ -303,7 +303,7 @@ namespace QuestForTheBestApi.Data
 						SELECT *
 							FROM cte_CocktailPlacements
 							WHERE Placement = 1
-							ORDER BY DateOfQuest ASC;";
+							ORDER BY DateOfQuest DESC;";
 
 					sqlConn.Open();
 

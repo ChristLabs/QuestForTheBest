@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-		const jabroniChance = 0.15; // 10% chance (change to taste)
+		const jabroniChance = 0.25;
 
 		const options = ["Jabroni", "Nigiri", "Baloney", "Crebroni", "Macaroni", "Rigatoni", "Pepperoni", "Zamboni"];
 
@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 				// Replace only the word "Negroni" inside this element
 				el.innerHTML = el.innerHTML.replaceAll("Negroni", replacement);
-
 			}
-
 		});
-
 	});

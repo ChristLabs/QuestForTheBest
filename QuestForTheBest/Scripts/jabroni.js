@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-		const jabroniChance = 0.1; // 10% chance (change to taste)
+		const jabroniChance = 0.15; // 10% chance (change to taste)
 
-		const options = ["Jabroni", "Nigiri", "Baloney", "Crebroni", "Macaroni"];
+		const options = ["Jabroni", "Nigiri", "Baloney", "Crebroni", "Macaroni", "Rigatoni", "Pepperoni", "Zamboni"];
 
 		document.querySelectorAll(".jabroni").forEach(el => {
 

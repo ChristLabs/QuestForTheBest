@@ -9,7 +9,8 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@700&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
 	<link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet" />
 	<link href="Content/CSS/quest.css" rel="stylesheet" />
 	<style>
@@ -34,6 +35,11 @@
 		.manufacturing-consent {
 			font-family: "Manufacturing Consent", serif;
 			font-weight: 100;
+			font-style: normal;
+		}
+		.amarante-regular {
+			font-family: "Amarante", serif;
+			font-weight: 400;
 			font-style: normal;
 		}
 
@@ -117,7 +123,7 @@
 		}
 
 		.recipe-table td:nth-child(2) {
-			color: #ffb245;
+			color: #E7BA6F;
 		}
 
 		@media (min-width: 768px) {
@@ -130,6 +136,22 @@
 			.recipe-instructions {
 				font-size: 1.4rem;
 			}
+		}
+
+		.riffs-riff {
+			font-weight: bold;
+		}
+
+		@media (min-width: 768px) {
+			.riffs-riff {
+				font-size: 1.4rem;
+			}
+		}
+
+		.riffs-img {
+			width: 120px;
+			height: 120px;
+			margin-bottom: 1rem;
 		}
 
 		.list-group-item {
@@ -152,18 +174,18 @@
 			<div class="overlay"></div>
 			<div class="container text-center position-relative">
 				<hr />
-				<div class="ribbon amita-bold fw-bold text-white text-uppercase mx-auto">&nbsp;Quest For The Best&nbsp;</div>
+				<div class="ribbon amarante-regular fw-bold text-white text-uppercase mx-auto">&nbsp;Quest For The Best&nbsp;</div>
 				<div class="py-4"></div>
 				<h1 class="display-1 manufacturing-consent">The <span class="jabroni">Negroni</span></h1>
 				<div class="py-4"></div>
-				<p class="amita-regular">A bold and bittersweet classic.</p>
+				<p class="amita-regular">A bold and bittersweet classic</p>
 				<hr />
 			</div>
 		</header>
 
 		<main class="container my-5">
 			<section class="section py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title manufacturing-consent text-center">Place of Origin</h2>
+				<h2 class="section-title amarante-regular text-center">Place of Origin</h2>
 				<p class="px-md-5 px-3">
 					The <span class="jabroni">Negroni</span> traces its roots to Florence, Italy in the early 20th century. According to the most popular
 					origin story, Count Camillo <span class="jabroni">Negroni</span> asked his bartender at Caffè Casoni to strengthen his favorite
@@ -176,7 +198,7 @@
 
 			<!-- Ingredients Section -->
 			<section class="section py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title text-center manufacturing-consent mb-3">Recipe</h2>
+				<h2 class="section-title text-center amarante-regular mb-3">Recipe</h2>
 				<div class="row justify-content-center bg-accent rounded py-3 mb-3">
 					<div class="col-md-8">
 						<table class="recipe-table mx-auto">
@@ -212,12 +234,12 @@
 			</section>
 
 			<section class="section  py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title manufacturing-consent text-center">Typical Glassware</h2>
+				<h2 class="section-title amarante-regular text-center">Typical Glassware</h2>
 				<p class="px-md-5 px-3">The <span class="jabroni">Negroni</span> is <strong>traditionally served in a short, heavy-bottomed rocks glass</strong> (also called an Old Fashioned glass), a sturdy vessel that complements its spirit-forward character. The thick base gives the drink a satisfying weight in hand and helps insulate the cocktail as it rests over a large cube or fresh ice. Its wide rim also allows the bright oils from the orange peel garnish to hit your nose with each sip, enhancing the bittersweet aroma.</p>
 			</section>
 
 			<section class="section py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title manufacturing-consent text-center">Influence on Other Cocktails</h2>
+				<h2 class="section-title amarante-regular text-center">Influence on Other Cocktails</h2>
 				<p class="px-md-5 px-3">
 					The <span class="jabroni">Negroni</span> has had a massive ripple effect on modern cocktail culture, inspiring an entire family of
 					"<span class="jabroni">Negroni</span> riffs" built on its simple equal-parts formula. Swap the gin for bourbon and you get a
@@ -227,17 +249,55 @@
 					the template for countless spirit-forward, balanced cocktails that followed.
 				</p>
 			</section>
-
-			<section class="section py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title manufacturing-consent text-center">Potential Riffs</h2>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item"><strong><span class="jabroni">Negroni</span> Sbagliato:</strong> Swap gin for prosecco for a sparkling,
-						lighter version.</li>
-					<li class="list-group-item"><strong>White <span class="jabroni">Negroni</span>:</strong> Made with gin, Lillet Blanc (or dry
-						vermouth), and Suze (a gentian liqueur).</li>
-					<li class="list-group-item"><strong>Mezcal <span class="jabroni">Negroni</span>:</strong> Swap gin with mezcal for a smoky, earthy
-						twist.</li>
-				</ul>
+			
+			<!-- Riffs Section -->
+			<section class="container my-5">
+				<div class="section py-4 px-md-5 px-3 shadow-lg">
+					<h2 class="section-title text-center amarante-regular mb-3">Potential Riffs</h2>
+					<p class="text-center">
+						<img src="Content/Images/Negroni-Sbagliato.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
+						<span class="riffs-riff"><span class="jabroni">Negroni</span> Sbagliato</span>
+						<br />
+						Swap gin for prosecco for a sparkling, lighter version.
+					</p>
+					<p class="text-center">
+						<img src="Content/Images/White-Negroni.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
+						<span class="riffs-riff">White <span class="jabroni">Negroni</span></span>
+						<br />
+						Made with gin, Lillet Blanc (or dry vermouth), and Suze (a gentian liqueur).
+					</p>
+					<p class="text-center">
+						<img src="Content/Images/Boulevardier.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
+						<span class="riffs-riff">Boulevardier</span>
+						<br />
+						Swap gin with bourbon for a smoky, earthytwist.
+					</p>
+				</div>
+			</section>
+			
+			<!-- Score Section -->
+			<section id="scores" class="container my-5">
+				<div class="section py-4 px-md-5 px-3 shadow-lg">
+					<h2 class="section-title text-center amarante-regular mb-3"><span class="jabroni">Negroni</span> Scores</h2>
+					<div class="table-responsive">
+						<table class="table table-dark table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th scope="col">Shiny Prize</th>
+									<th scope="col">Valentina's</th>
+									<th scope="col">Cryptatropa</th>
+									<th scope="col">Cheeky Martini</th>
+									<th scope="col">Filibuster</th>
+									<th scope="col">The Bus Stop</th>
+									<th scope="col">COVE</th>
+									<th scope="col">Legends</th>
+									<th scope="col">Average</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
 			</section>
 
 			<div class="text-center my-4">

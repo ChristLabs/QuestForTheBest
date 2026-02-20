@@ -443,5 +443,88 @@ namespace QuestForTheBestApi.Data
 
 			return ret;
 		}
+
+		public static List<object> GetAboutUs()
+		{
+			var ret = new List<object>();
+
+			using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
+			{
+				using (var cmd = sqlConn.CreateCommand())
+				{
+					cmd.CommandText = @"
+						WITH CocktailAverages AS (
+							SELECT s.QuesterID
+									,s.CocktailID
+									,AVG(CAST(s.Score AS DECIMAL(4, 2))) AS AvgCocktailScore
+									,ROW_NUMBER() OVER (
+										PARTITION BY s.QuesterID
+										ORDER BY AVG(CAST(s.Score AS DECIMAL(4, 2))) DESC
+									) AS rn
+								FROM Scores s
+								GROUP BY s.QuesterID, s.CocktailID
+						),
+						BarAverages AS (
+							SELECT s.QuesterID
+									,s.BarID
+									,AVG(CAST(s.Score AS DECIMAL(4, 2))) AS AvgBarScore
+									,ROW_NUMBER() OVER (
+										PARTITION BY s.QuesterID
+										ORDER BY AVG(CAST(s.Score AS DECIMAL(4, 2))) DESC
+									) AS rn
+								FROM Scores s
+								GROUP BY s.QuesterID, s.BarID
+						),
+						TotalScores AS (
+							SELECT QuesterID,
+									COUNT(*) AS TotalScoresGiven
+								FROM Scores
+								GROUP BY QuesterID
+						)
+						SELECT q.QuesterID
+								,q.QuesterName
+								,COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterNickName
+								,c.CocktailName AS FavoriteCocktail
+								,STR(ca.AvgCocktailScore, 4, 2) AS AvgCocktailScore
+								,b.BarName AS FavoriteBar
+								,STR(ba.AvgBarScore, 4, 2) AS AvgBarScore
+								,ts.TotalScoresGiven
+						FROM Questers q
+							LEFT JOIN CocktailAverages ca
+								ON q.QuesterID = ca.QuesterID
+								AND ca.rn = 1
+							LEFT JOIN Cocktails c
+								ON ca.CocktailID = c.CocktailID
+							LEFT JOIN BarAverages ba
+								ON q.QuesterID = ba.QuesterID
+								AND ba.rn = 1
+							LEFT JOIN Bars b
+								ON ba.BarID = b.BarID
+							LEFT JOIN TotalScores ts
+								ON q.QuesterID = ts.QuesterID
+						ORDER BY q.QuesterName;";
+
+					sqlConn.Open();
+
+					using var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						ret.Add(new
+						{
+							QuesterId = dr.GetInt16(0),
+							QuesterName = dr.GetString(1),
+							QuesterNickname = dr.GetString(2),
+							FavoriteCocktail = dr.GetString(3),
+							AverageCocktailScore = dr.GetString(4),
+							FavoriteBar = dr.GetString(5),
+							AverageBarScore = dr.GetString(6),
+							TotalScoresGiven = dr.GetInt32(7),
+						});
+					}
+				}
+			}
+
+			return ret;
+		}
 	}
 }

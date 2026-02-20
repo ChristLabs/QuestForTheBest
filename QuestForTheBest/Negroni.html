@@ -7,36 +7,32 @@
 	<title>The History of the Negroni Cocktail</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Amita:wght@400;700&display=swap" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:wght@700&display=swap" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css2?family=Manufacturing+Consent&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
 	<link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet" />
 	<link href="Content/CSS/quest.css" rel="stylesheet" />
 	<style>
-		.amita-regular {
-			font-family: "Amita", serif;
-			font-weight: 400;
-			font-style: normal;
+		.literata-small {
+		  font-family: "Literata", serif;
+		  font-optical-sizing: auto;
+		  font-weight: 200;
+		  font-style: normal;
 		}
-
-		.amita-bold {
-			font-family: "Amita", serif;
-			font-weight: 700;
-			font-style: normal;
+		
+		.literata-regular {
+		  font-family: "Literata", serif;
+		  font-optical-sizing: auto;
+		  font-weight: 400;
+		  font-style: normal;
 		}
-
-		.bona-nova-sc-bold {
-			font-family: "Bona Nova SC", serif;
-			font-weight: 700;
-			font-style: normal;
+		
+		.viaoda-libre-regular {
+		  font-family: "Viaoda Libre", serif;
+		  font-weight: 400;
+		  font-style: normal;
 		}
-
-		.manufacturing-consent {
-			font-family: "Manufacturing Consent", serif;
-			font-weight: 100;
-			font-style: normal;
-		}
+		
 		.amarante-regular {
 			font-family: "Amarante", serif;
 			font-weight: 400;
@@ -46,34 +42,54 @@
 		body {
 			background: #10090c;
 			background: url('Content/Images/Renaissance.png') repeat;
-			font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+            font-family: "Literata",Georgia,Cambria,"Times New Roman",Times,serif;
 		}
 
-		.body-darken {
-			background: rgba(0, 0, 0, 0.4);
-		}
+		#hero {
+            background: url('Content/Images/Negroni_banner.webp') no-repeat center center/cover;
+            position: relative;
+            box-shadow: 0 2.5px 15px rgba(0,0,0,.7), 0 5px 30px rgba(0,0,0,.7);
+        }
 
 		#hero .display-1 {
-			font-size: calc(2rem + 4.5vw);
+			font-size: calc(4rem + 4.5vw);
 			text-shadow: 0 1px 5px #fff26b, 0 2px 1px #5a0003, 0 4px 1px #470411, 0 6px 1px #130014;
+			letter-spacing: -.3rem;
 		}
 
 		@media (min-width: 1200px) {
 			#hero .display-1 {
-				line-height: 6rem;
-				font-size: 8rem;
-				letter-spacing: 0.8rem;
+				font-size: 10rem;
 			}
 		}
-
-		header {
-			background: url('Content/Images/Negroni_banner.webp') no-repeat center center/cover;
-			height: 350px;
-			position: relative;
-			color: white;
-			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+		
+		#hero .display-5 {
+			font-size: calc(1.5rem + 1vw);
+			text-shadow: 0 .5px 0 rgba(0,0,0,1), 0 1px .5px rgba(0,0,0,1), 0 1.5px 1px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1);;
 		}
 
+		@media (min-width: 1200px) {
+			#hero .display-5 {
+				font-size: 3rem;
+			}
+		}
+		
+		#hero h4 {
+			letter-spacing: .5em;
+			font-size: calc(0.75rem + 1vw);
+			text-shadow: 0 .5px 0 rgba(0,0,0,1), 0 1px .5px rgba(0,0,0,1), 0 1.5px 1px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1);
+		}
+
+		@media (min-width: 1200px) {
+			#hero h4 {
+				font-size: 1.4rem;
+			}
+		}
+		
+		.darken-overlay {
+            background: rgba(0,0,0,.3);
+        }
+		
 		header .overlay {
 			background: rgba(0, 0, 0, 0.5);
 			height: 100%;
@@ -90,23 +106,24 @@
 		}
 
 		.section {
-			background-color: #2c2c2c;
-			color: #d1d1d1;
-			border-radius: 10px;
+			background-color: #f3f1ed;
+			color: #972121;
+			border-radius: 2em;
 			padding: 20px;
 			margin: 15px 0;
-			border-bottom: 1px solid #5d0000;
+			border-bottom: 4px solid #972121;
+            box-shadow: 0 5px 15px rgba(0,0,0,.5), 0 10px 30px rgba(0,0,0,.5);
 		}
 
 		.section-title {
-			font-size: calc(1rem + 1.5vw);
-			letter-spacing: 0.4rem;
-			color: #e34234;
-			text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+			font-size: calc(3rem + 1.5vw);
+			letter-spacing: 0rem;
+			color: #e07247;
 		}
 
 		.bg-accent {
-			background: #444;
+			background: #26353f;
+			color: #fff;
 		}
 
 		.recipe-table {
@@ -119,11 +136,12 @@
 		}
 
 		.recipe-table td:nth-child(1) {
+			color: #fff;
 			min-width: 8rem;
 		}
 
 		.recipe-table td:nth-child(2) {
-			color: #E7BA6F;
+			color: #ffbaba;
 		}
 
 		@media (min-width: 768px) {
@@ -168,147 +186,224 @@
 </head>
 
 <body>
-	<div class="body-darken">
-		<!-- Header Section -->
-		<header id="hero" class="d-flex align-items-center justify-content-center">
-			<div class="overlay"></div>
-			<div class="container text-center position-relative">
-				<hr />
-				<div class="ribbon amarante-regular fw-bold text-white text-uppercase mx-auto">&nbsp;Quest For The Best&nbsp;</div>
+	<!-- Header Section -->
+	<section id="hero" class="d-flex align-items-center justify-content-center">
+		<div class="darken-overlay"></div>
+		<div class="container text-center text-light position-relative">
+			<a class="btn btn-outline-light border-0 position-absolute top-0 start-0 m-3" href="/">
+				<i class="fa fa-chevron-left"></i>
+			</a>
+			<div class="jumbotron py-5">
+				<hr>
+				<div class="ribbon literata-regular fw-bold text-white text-uppercase mx-auto">&nbsp;Quest For The Best&nbsp;</div>
 				<div class="py-4"></div>
-				<h1 class="display-1 manufacturing-consent">The <span class="jabroni">Negroni</span></h1>
+				<h2 class="display-5 literata-regular text-uppercase mb-0">The History of the</h2>
+				<h1 class="display-1 jabroni viaoda-libre-regular text-uppercase">Negroni</h1>
 				<div class="py-4"></div>
-				<p class="amita-regular">A bold and bittersweet classic</p>
-				<hr />
+				<h4 class="literata-small text-uppercase">"A bold and bittersweet classic."</h4>
+				<hr>
 			</div>
-		</header>
+		</div>
+	</section>
 
-		<main class="container my-5">
-			<section class="section py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title amarante-regular text-center">Place of Origin</h2>
-				<p class="px-md-5 px-3">
-					The <span class="jabroni">Negroni</span> traces its roots to Florence, Italy in the early 20th century. According to the most popular
+	<!-- Origin Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3">
+			<div class="position-relative">
+				<h2 class="position-absolute section-title text-center amarante-regular text-uppercase mb-3 w-100">
+					<div class="d-flex justify-content-between">
+						<div>&#9679</div>
+						<div>&#9679</div>
+					</div>
+				</h2>
+				<h2 class="section-title text-center amarante-regular text-uppercase mb-3">
+					Place of
+					<br class="d-block d-md-none"/>
+					Origin
+				</h2>
+			</div>
+            <p class="px-md-5 px-3">
+                The <span class="jabroni">Negroni</span> traces its roots to <strong>Florence, Italy in the early 20th century</strong>. According to the most popular
 					origin story, Count Camillo <span class="jabroni">Negroni</span> asked his bartender at Caffè Casoni to strengthen his favorite
 					cocktail, the Americano, by replacing the soda water with gin. The bartender, Fosco Scarselli, obliged
 					and garnished it with an orange peel instead of the Americano's lemon twist to signal the change. The
-					resulting equal-parts blend of gin, Campari, and sweet vermouth became a timeless classic &mdash; bold, bitter,
+					resulting equal-parts blend of gin, Campari, and sweet vermouth became a timeless classic-bold, bitter,
 					and perfectly balanced.
-				</p>
-			</section>
-
-			<!-- Ingredients Section -->
-			<section class="section py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title text-center amarante-regular mb-3">Recipe</h2>
-				<div class="row justify-content-center bg-accent rounded py-3 mb-3">
-					<div class="col-md-8">
-						<table class="recipe-table mx-auto">
-							<tr>
-								<td>1 part</td>
-								<td><strong>Gin</strong></td>
-							</tr>
-							<tr>
-								<td>1 part</td>
-								<td><strong>Campari</strong></td>
-							</tr>
-							<tr>
-								<td>1 part</td>
-								<td><strong>Sweet Vermouth</strong></td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td><strong>Orange twist</strong> (for garnish)</td>
-							</tr>
-						</table>
-
+            </p>
+        </div>
+    </section>
+	
+	<!-- Ingredients Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-0">
+            <div class="position-relative mx-5">
+				<h2 class="position-absolute section-title text-center amarante-regular text-uppercase mb-3 w-100">
+					<div class="d-flex justify-content-between">
+						<div>&#9679</div>
+						<div>&#9679</div>
 					</div>
-				</div>
-				
-				<!-- How to Make Section -->
-				<div class="row justify-content-center">
-					<div class="col-md-8">
-						<p class="recipe-instructions text-center">
-							Stir with ice and strain into a rocks glass over a large ice cube. Garnish with an orange twist.
-						</p>
-					</div>
-				</div>
-			</section>
-
-			<section class="section  py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title amarante-regular text-center">Typical Glassware</h2>
-				<p class="px-md-5 px-3">The <span class="jabroni">Negroni</span> is <strong>traditionally served in a short, heavy-bottomed rocks glass</strong> (also called an Old Fashioned glass), a sturdy vessel that complements its spirit-forward character. The thick base gives the drink a satisfying weight in hand and helps insulate the cocktail as it rests over a large cube or fresh ice. Its wide rim also allows the bright oils from the orange peel garnish to hit your nose with each sip, enhancing the bittersweet aroma.</p>
-			</section>
-
-			<section class="section py-4 px-md-5 px-3 shadow-lg">
-				<h2 class="section-title amarante-regular text-center">Influence on Other Cocktails</h2>
-				<p class="px-md-5 px-3">
-					The <span class="jabroni">Negroni</span> has had a massive ripple effect on modern cocktail culture, inspiring an entire family of
-					"<span class="jabroni">Negroni</span> riffs" built on its simple equal-parts formula. Swap the gin for bourbon and you get a
-					Boulevardier; use Prosecco instead and it becomes a <span class="jabroni">Negroni</span> Sbagliato. Bartenders love it because the
-					structure is endlessly adaptable &mdash; change the base spirit, tweak the bitter component, adjust the
-					vermouth &mdash; and you've got something new while keeping that same bold, bittersweet backbone. It's basically
-					the template for countless spirit-forward, balanced cocktails that followed.
-				</p>
-			</section>
-			
-			<!-- Riffs Section -->
-			<section class="container my-5">
-				<div class="section py-4 px-md-5 px-3 shadow-lg">
-					<h2 class="section-title text-center amarante-regular mb-3">Potential Riffs</h2>
-					<p class="text-center jingle">
-						<img src="Content/Images/Negroni-Sbagliato.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
-						<span class="riffs-riff"><span class="jabroni">Negroni</span> Sbagliato</span>
-						<br />
-						Swap gin for prosecco for a sparkling, lighter version.
-					</p>
-					<p class="text-center jingle">
-						<img src="Content/Images/White-Negroni.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
-						<span class="riffs-riff">White <span class="jabroni">Negroni</span></span>
-						<br />
-						Made with gin, Lillet Blanc (or dry vermouth), and Suze (a gentian liqueur).
-					</p>
-					<p class="text-center jingle">
-						<img src="Content/Images/Boulevardier.webp" class="d-block mx-auto riffs-img" alt="Perfect Manhattan" width="512" height="512" />
-						<span class="riffs-riff">Boulevardier</span>
-						<br />
-						Swap gin with bourbon for a smoky, earthytwist.
-					</p>
-				</div>
-			</section>
-			
-			<!-- Score Section -->
-			<section id="scores" class="container my-5">
-				<div class="section py-4 px-md-5 px-3 shadow-lg">
-					<h2 class="section-title text-center amarante-regular mb-3"><span class="jabroni">Negroni</span> Scores</h2>
-					<div class="table-responsive">
-						<table class="table table-dark table-striped table-bordered table-hover">
-							<thead>
-								<tr>
-									<th scope="col">Shiny Prize</th>
-									<th scope="col">Valentina's</th>
-									<th scope="col">Cryptatropa</th>
-									<th scope="col">Cheeky Martini</th>
-									<th scope="col">Filibuster</th>
-									<th scope="col">The Bus Stop</th>
-									<th scope="col">COVE</th>
-									<th scope="col">Legends</th>
-									<th scope="col">Average</th>
-								</tr>
-							</thead>
-							<tbody></tbody>
-						</table>
-					</div>
-				</div>
-			</section>
-
-			<div class="text-center my-4">
-				<a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
+				</h2>
+				<h2 class="section-title text-center amarante-regular text-uppercase mb-3">Recipe</h2>
 			</div>
-		</main>
+            <div class="justify-content-center bg-accent py-3 mb-3">
+                <table class="recipe-table mx-auto">
+					<tr>
+						<td>1 part</td>
+						<td><strong>Gin</strong></td>
+					</tr>
+					<tr>
+						<td>1 part</td>
+						<td><strong>Campari</strong></td>
+					</tr>
+					<tr>
+						<td>1 part</td>
+						<td><strong>Sweet Vermouth</strong></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td><strong>Orange twist</strong> (for garnish)</td>
+					</tr>
+				</table>
+            </div>
 
-		<footer class="text-center">
-			<p class="mb-0"><strong>Quest For The Best</strong> &mdash; <span class="jabroni">Negroni</span></p>
-		</footer>
-	</div>
+            <!-- How to Make Section -->
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="recipe-instructions text-center">
+                        Stir with ice and strain into a rocks glass over a large ice cube.
+						Garnish with an orange twist.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!-- Glassware Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3">
+            <div class="position-relative">
+				<h2 class="position-absolute section-title text-center amarante-regular text-uppercase mb-3 w-100">
+					<div class="d-flex justify-content-between">
+						<div>&#9679</div>
+						<div>&#9679</div>
+					</div>
+				</h2>
+				<h2 class="section-title text-center amarante-regular text-uppercase mb-3">Glassware</h2>
+			</div>
+            <p class="px-md-5 px-3">The <span class="jabroni">Negroni</span> is <strong>traditionally served in a short, heavy-bottomed rocks glass</strong> (also called an Old Fashioned glass), a sturdy vessel that complements its spirit-forward character. The thick base gives the drink a satisfying weight in hand and helps insulate the cocktail as it rests over a large cube or fresh ice. Its wide rim also allows the bright oils from the orange peel garnish to hit your nose with each sip, enhancing the bittersweet aroma.</p>
+        </div>
+    </section>
+	
+	<!-- Influence Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3 bg-accent">
+			<div class="position-relative">
+				<h2 class="position-absolute section-title text-center amarante-regular text-uppercase mb-3 w-100">
+					<div class="d-flex justify-content-between">
+						<div>&#9679</div>
+						<div>&#9679</div>
+					</div>
+				</h2>
+				<h2 class="section-title text-center amarante-regular text-uppercase mb-3">
+					Influence
+					<br class="d-block d-md-none"/>
+					on
+					<br class="d-none d-md-block"/>
+					Other
+					Cocktails
+				</h2>
+			</div>
+            <p class="px-md-5 px-3">The <span class="jabroni">Negroni</span> has had a massive ripple effect on modern cocktail culture, inspiring an entire family of
+				"<span class="jabroni">Negroni</span> riffs" built on its simple equal-parts formula. Swap the gin for bourbon and you get a
+				Boulevardier; use Prosecco instead and it becomes a <span class="jabroni">Negroni</span> Sbagliato. Bartenders love it because the
+				structure is endlessly adaptable &mdash; change the base spirit, tweak the bitter component, adjust the
+				vermouth &mdash; and you've got something new while keeping that same bold, bittersweet backbone. It's basically
+				the template for countless spirit-forward, balanced cocktails that followed.
+			</p>
+        </div>
+    </section>
+			
+	<!-- Riffs Section -->
+    <section class="container my-5">
+        <div class="section py-4 px-md-5 px-3">
+            <div class="position-relative">
+				<h2 class="position-absolute section-title text-center amarante-regular text-uppercase mb-3 w-100">
+					<div class="d-flex justify-content-between">
+						<div>&#9679</div>
+						<div>&#9679</div>
+					</div>
+				</h2>
+				<h2 class="section-title text-center amarante-regular text-uppercase mb-3">
+					Potential
+					<br class="d-block d-md-none"/>
+					Riffs
+				</h2>
+			</div>
+            <p class="text-center jingle">
+                <img src="Content/Images/Negroni-Sbagliato.webp" class="d-block mx-auto riffs-img" alt="Negroni Sbagliato" width="512" height="512" />
+                <span class="riffs-riff"><span class="jabroni">Negroni</span> Sbagliato</span>
+                <br />
+						Swap gin for prosecco for a sparkling, lighter version.
+            </p>
+            <p class="text-center jingle">
+                <img src="Content/Images/White-Negroni.webp" class="d-block mx-auto riffs-img" alt="White Negroni" width="512" height="512" />
+                <span class="riffs-riff">White <span class="jabroni">Negroni</span></span>
+                <br />
+						Made with gin, Lillet Blanc (or dry vermouth), and Suze (a gentian liqueur).
+            </p>
+            <p class="text-center jingle">
+                <img src="Content/Images/Boulevardier.webp" class="d-block mx-auto riffs-img" alt="Boulevardier" width="512" height="512" />
+                <span class="riffs-riff">Boulevardier</span>
+                <br />
+						Swap gin with bourbon for a smoky, earthytwist.
+            </p>
+        </div>
+    </section>
+	
+	<!-- Score Section -->
+	<section id="scores" class="container my-5">
+		<div class="section py-4 px-md-5 px-3">
+			<div class="position-relative">
+				<h2 class="position-absolute section-title text-center amarante-regular text-uppercase mb-3 w-100">
+					<div class="d-flex justify-content-between">
+						<div>&#9679</div>
+						<div>&#9679</div>
+					</div>
+				</h2>
+				<h2 class="section-title text-center amarante-regular text-uppercase mb-3">
+					Negroni
+					<br class="d-block d-md-none"/>
+					Scores
+				</h2>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-dark table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Shiny Prize</th>
+							<th scope="col">Valentina's</th>
+							<th scope="col">Cryptatropa</th>
+							<th scope="col">Cheeky Martini</th>
+							<th scope="col">Filibuster</th>
+							<th scope="col">The Bus Stop</th>
+							<th scope="col">COVE</th>
+							<th scope="col">Legends</th>
+							<th scope="col">Average</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer Section -->
+    <div class="container text-center my-4">
+        <a href="index.html" class="btn btn-outline-light">Back to Homepage</a>
+    </div>
+    <footer class="text-center">
+        <p class="text-center mb-0"><strong>Quest For The Best</strong> &mdash; <span class="jabroni">Negroni</span></p>
+    </footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="Scripts/jabroni.js"></script>

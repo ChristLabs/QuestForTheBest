@@ -476,19 +476,21 @@ namespace QuestForTheBestApi.Data
 								GROUP BY s.QuesterID, s.BarID
 						),
 						TotalScores AS (
-							SELECT QuesterID,
-									COUNT(*) AS TotalScoresGiven
-								FROM Scores
+							SELECT s.QuesterID
+									,COUNT(*) AS TotalScoresGiven
+									,AVG(CAST(s.Score AS DECIMAL(10,2))) AS OverallAverageScore
+								FROM Scores AS s
 								GROUP BY QuesterID
 						)
 						SELECT q.QuesterID
 								,q.QuesterName
-								,COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterNickName
+								,COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterNickname
 								,c.CocktailName AS FavoriteCocktail
 								,STR(ca.AvgCocktailScore, 4, 2) AS AvgCocktailScore
 								,b.BarName AS FavoriteBar
 								,STR(ba.AvgBarScore, 4, 2) AS AvgBarScore
 								,ts.TotalScoresGiven
+								,STR(ts.OverallAverageScore, 4, 2) AS OverallAverageScore
 						FROM Questers q
 							LEFT JOIN CocktailAverages ca
 								ON q.QuesterID = ca.QuesterID
@@ -519,6 +521,7 @@ namespace QuestForTheBestApi.Data
 							FavoriteBar = dr.GetString(5),
 							AverageBarScore = dr.GetString(6),
 							TotalScoresGiven = dr.GetInt32(7),
+							OverallAverageScore = dr.GetString(8)
 						});
 					}
 				}

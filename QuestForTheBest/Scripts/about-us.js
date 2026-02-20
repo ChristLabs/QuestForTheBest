@@ -51,9 +51,12 @@ function renderAboutUsCard(quester) {
 						<div class="flip-card-front">
 							<div class="avatar mb-3">${quester.questerNickname[0]}</div>
 							<div class="h5 mb-1">${quester.questerNickname}</div>
+							<div class="muted">Highest Score: ${quester.highestScore}</div>
+							<div class="muted">${quester.highestScoreCocktail} at ${quester.highestScoreBar}</div>
 						</div>
 						<div class="flip-card-back">
 							<div class="h6 mb-2">${quester.questerName}</div>
+							<div class="stat-line"><span>Quests Attended</span><strong>${quester.questsAttended}</strong></div>
 							<div class="stat-line"><span>Average score</span><strong>${quester.overallAverageScore}</strong></div>
 							<div class="stat-line"><span>Total ratings</span><strong>${quester.totalScoresGiven}</strong></div>
 							<div class="stat-line"><span>Top bar</span><strong>${quester.favoriteBar}(${quester.averageBarScore})</strong></div>

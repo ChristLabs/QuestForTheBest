@@ -478,32 +478,63 @@ namespace QuestForTheBestApi.Data
 						TotalScores AS (
 							SELECT s.QuesterID
 									,COUNT(*) AS TotalScoresGiven
-									,AVG(CAST(s.Score AS DECIMAL(10,2))) AS OverallAverageScore
+									,AVG(CAST(s.Score AS DECIMAL(4, 2))) AS OverallAverageScore
 								FROM Scores AS s
 								GROUP BY QuesterID
+						),
+						HighestScoreHit AS (
+							SELECT s.QuesterID
+									,s.Score AS HighestScore
+									,s.CocktailID
+									,s.BarID
+									,ROW_NUMBER() OVER (
+										PARTITION BY s.QuesterID
+										ORDER BY
+											s.Score DESC
+									) AS rn
+								FROM Scores AS s
+						),
+						QuestsAttended AS (
+							SELECT s.QuesterID
+									,COUNT(DISTINCT s.QuestID) AS QuestsAttended
+								FROM Scores s
+								GROUP BY s.QuesterID
 						)
 						SELECT q.QuesterID
 								,q.QuesterName
 								,COALESCE(q.QuesterNickname, q.QuesterName) AS QuesterNickname
+								,qa.QuestsAttended
 								,c.CocktailName AS FavoriteCocktail
 								,STR(ca.AvgCocktailScore, 4, 2) AS AvgCocktailScore
 								,b.BarName AS FavoriteBar
 								,STR(ba.AvgBarScore, 4, 2) AS AvgBarScore
 								,ts.TotalScoresGiven
 								,STR(ts.OverallAverageScore, 4, 2) AS OverallAverageScore
-						FROM Questers q
-							LEFT JOIN CocktailAverages ca
+								,STR(hs.HighestScore, 4, 2) AS HighestScore
+								,hc.CocktailName AS HighestScoreCocktail
+								,hb.BarName AS HighestScoreBar
+						FROM Questers AS q
+							LEFT JOIN QuestsAttended AS qa
+								ON q.QuesterID = qa.QuesterID
+							LEFT JOIN CocktailAverages AS ca
 								ON q.QuesterID = ca.QuesterID
-								AND ca.rn = 1
-							LEFT JOIN Cocktails c
+									AND ca.rn = 1
+							LEFT JOIN Cocktails AS c
 								ON ca.CocktailID = c.CocktailID
-							LEFT JOIN BarAverages ba
+							LEFT JOIN BarAverages AS ba
 								ON q.QuesterID = ba.QuesterID
 								AND ba.rn = 1
-							LEFT JOIN Bars b
+							LEFT JOIN Bars AS b
 								ON ba.BarID = b.BarID
-							LEFT JOIN TotalScores ts
+							LEFT JOIN TotalScores AS ts
 								ON q.QuesterID = ts.QuesterID
+							LEFT JOIN HighestScoreHit hs
+								ON q.QuesterID = hs.QuesterID
+									AND hs.rn = 1
+							LEFT JOIN Cocktails hc
+								ON hs.CocktailID = hc.CocktailID
+							LEFT JOIN Bars hb
+								ON hs.BarID = hb.BarID
 						ORDER BY q.QuesterName;";
 
 					sqlConn.Open();
@@ -516,12 +547,16 @@ namespace QuestForTheBestApi.Data
 							QuesterId = dr.GetInt16(0),
 							QuesterName = dr.GetString(1),
 							QuesterNickname = dr.GetString(2),
-							FavoriteCocktail = dr.GetString(3),
-							AverageCocktailScore = dr.GetString(4),
-							FavoriteBar = dr.GetString(5),
-							AverageBarScore = dr.GetString(6),
-							TotalScoresGiven = dr.GetInt32(7),
-							OverallAverageScore = dr.GetString(8)
+							QuestsAttended = dr.GetInt32(3),
+							FavoriteCocktail = dr.GetString(4),
+							AverageCocktailScore = dr.GetString(5),
+							FavoriteBar = dr.GetString(6),
+							AverageBarScore = dr.GetString(7),
+							TotalScoresGiven = dr.GetInt32(8),
+							OverallAverageScore = dr.GetString(9),
+							HighestScore = dr.GetString(10),
+							HighestScoreCocktail = dr.GetString(11),
+							HighestScoreBar = dr.GetString(12),
 						});
 					}
 				}

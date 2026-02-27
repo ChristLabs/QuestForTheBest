@@ -1,0 +1,254 @@
+/* --- About Us / Flip Cards (matches your dark+gold theme) --- */
+.flip-card {
+	height: 360px;
+	perspective: 1200px;
+}
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 650ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+/* both faces */
+.flip-card-front,
+.flip-card-back {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+	border-radius: 18px;
+	padding: 22px 18px;
+	overflow: hidden;
+
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+
+	background:
+		radial-gradient(circle at 20% 10%, rgba(244, 197, 66, 0.18), rgba(0, 0, 0, 0) 52%),
+		linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(0, 0, 0, .08));
+	border: 1px solid rgba(255, 255, 255, 0.10);
+	box-shadow: 0 14px 34px rgba(0, 0, 0, .35);
+}
+
+.flip-card-back {
+	transform: rotateY(180deg);
+	background:
+		radial-gradient(circle at 80% 15%, rgba(231, 198, 151, 0.16), rgba(0, 0, 0, 0) 55%),
+		linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(0, 0, 0, .12));
+}
+
+/* gold accent bar */
+.flip-card-front::before,
+.flip-card-back::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 6px;
+	background: linear-gradient(90deg, rgba(244, 197, 66, .85), rgba(231, 198, 151, .25));
+	opacity: .9;
+}
+
+/* subtle "shine" on hover */
+.flip-card-front::after,
+.flip-card-back::after {
+	content: "";
+	position: absolute;
+	inset: -40%;
+	background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .10), rgba(0, 0, 0, 0) 55%);
+	transform: translateY(18px);
+	opacity: .0;
+	transition: opacity 180ms ease;
+	pointer-events: none;
+}
+
+.flip-card:hover .flip-card-front::after,
+.flip-card:hover .flip-card-back::after {
+	opacity: .75;
+}
+
+.flip-card:hover .flip-card-front,
+.flip-card:hover .flip-card-back {
+	box-shadow: 0 18px 44px rgba(0, 0, 0, .45);
+	/*transform: translateY(-2px);*/
+}
+
+/* avatar */
+.profile-wrap {
+	position: relative;
+	width: 108px;
+	height: 108px;
+	border-radius: 999px;
+	display: grid;
+	place-items: center;
+	margin-bottom: 14px;
+	overflow: hidden;
+
+	background: rgba(0, 0, 0, .25);
+	border: 1px solid rgba(244, 197, 66, .28);
+	box-shadow:
+		0 12px 26px rgba(0, 0, 0, .40),
+		0 0 0 4px rgba(244, 197, 66, .08);
+}
+
+.profile-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 999px;
+	display: block;
+	filter: saturate(1.02) contrast(1.02);
+}
+
+.profile-fallback {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	font-size: 40px;
+	font-weight: 900;
+	letter-spacing: .5px;
+	color: #f4c542;
+	text-transform: uppercase;
+	background:
+		radial-gradient(circle at 30% 25%, rgba(244, 197, 66, .18), rgba(0, 0, 0, .22));
+}
+
+.profile-wrap.no-img .profile-fallback {
+	opacity: 1;
+}
+
+.profile-wrap:not(.no-img) .profile-fallback {
+	opacity: 0;
+}
+
+/* headings + muted */
+.flip-card .h5 {
+	margin: 0;
+	font-weight: 900;
+	color: #f4c542;
+	letter-spacing: .2px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .35);
+}
+
+.flip-card .h6 {
+	margin: 0 0 10px 0;
+	font-weight: 900;
+	color: #e7c697;
+	letter-spacing: .2px;
+}
+
+.flip-card .muted {
+	color: rgba(209, 209, 209, .78);
+	font-size: .92rem;
+	line-height: 1.2rem;
+}
+
+.flip-card-front .muted+.muted {
+	margin-top: 4px;
+}
+
+/* back stats */
+.stat-line {
+	width: 100%;
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+
+	padding: 10px 12px;
+	border-radius: 14px;
+
+	background: rgba(0, 0, 0, .18);
+	border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.stat-line+.stat-line {
+	margin-top: 10px;
+}
+
+.stat-line span {
+	color: rgba(209, 209, 209, .76);
+	font-size: .9rem;
+}
+
+.stat-line strong {
+	font-weight: 900;
+	color: #d1d1d1;
+}
+
+/* make long bar/cocktail names not explode the layout */
+.stat-line strong {
+	max-width: 62%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: right;
+}
+
+.stat-line span {
+	white-space: nowrap;
+	flex: 0 0 auto;
+}
+
+.stat-line strong {
+	flex: 1 1 auto;
+	min-width: 0;
+	/* allows ellipsis to actually work */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: right;
+}
+
+/* Make the value a bit smaller so long names + scores fit */
+.stat-line span {
+	font-size: .85rem;
+}
+
+.stat-line strong {
+	font-size: .90rem;
+}
+
+/* Give the value more width (was 62% in my earlier snippet) */
+.stat-line strong {
+	max-width: 72%;
+}
+
+/* For the two rows where scores matter most, never cut them off */
+.stat-line.no-cut strong {
+	overflow: visible;
+	text-overflow: clip;
+}
+
+/* accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+	.flip-card-inner {
+		transition: none;
+	}
+
+	.flip-card:hover .flip-card-front,
+	.flip-card:hover .flip-card-back {
+		transform: none;
+	}
+}
+
+/* small screens */
+@media (max-width: 575.98px) {
+	.flip-card {
+		height: 380px;
+	}
+}

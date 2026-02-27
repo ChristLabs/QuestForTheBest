@@ -1,3 +1,11 @@
+document.addEventListener('error', function (e) {
+	if (e.target.classList.contains('profile-img')) {
+		const wrap = e.target.closest('.profile-wrap');
+		e.target.remove();
+		if (wrap) wrap.classList.add('no-img');
+	}
+}, true);
+
 function bindSearch() {
 	const input = document.getElementById('nameFilter');
 	const clearBtn = document.getElementById('clearFilter');
@@ -68,9 +76,8 @@ function renderAboutUsCard(quester) {
 										return `Content/Images/Drinkers/${lastName}${firstInitial}.jpg`;
 									})()}"
 									alt="${quester.questerNickname}"
-									loading="lazy"
-									onerror="this.remove(); this.parentElement.classList.add('no-img');" />
-								<div class="profile-fallback">${quester.questerNickname[0]}</div>
+									loading="lazy" />
+								<div class="profile-fallback">${(quester.questerNickname || quester.questerName || '?')[0].toUpperCase()}</div>
 							</div>
 
 							<div class="h5 mb-1">${quester.questerNickname}</div>

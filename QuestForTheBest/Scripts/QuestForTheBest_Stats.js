@@ -3,7 +3,8 @@ function getStats(){
 	getTotalScores();
 	getHighestScores();
 	getQuestWinners();
-    getDrunkestGuy();
+    //getDrunkestGuy();
+    getFeaturedQuester();
 	getScoresByCocktail();
 	getScoresByQuester();
 	getScoresByBar();
@@ -44,7 +45,7 @@ async function getQuestWinners(){
 
 function renderQuestWinnersHeroDisplay(data){
     //-- Get last 3 quest winners
-    for(let i = data.length - 1; i > data.length - 4; i--){
+    for(let i = 0; i < 3; i++){
         document.getElementById("quest-winners-row").insertAdjacentHTML("beforeend", `
             <div class="col-lg-4">
                 <div class="card mb-lg-0 mb-3">
@@ -68,10 +69,21 @@ async function getDrunkestGuy(){
     const response = await fetch("https://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetDrunkestGuy");
     const data = await response.json();
 
-    let questerImageName = data.questerName.split()
-
     document.getElementById("drunkest-guy-card").innerHTML = `
         <h3 class="text-uppercase mt-0 mb-4">Drunkest Guy</h3>
+        <img id="drunkest-img" class="img-fluid d-block rounded mb-4" src="Content/Images/Drinkers/${getLastNameFirstInitial(data.questerName)}.jpg" />
+        <h2 class="text-uppercase m-0">${data.questerNickname}</h2>
+        <h5 class="text-uppercase m-0">${data.questerScoreCount} Drinks</h5>
+        <h5 class="text-uppercase m-0">${data.percentageOfTotal}% of total</h5>
+    `;
+}
+
+async function getFeaturedQuester(){
+    const response = await fetch("https://www.christlabs.dev/QuestForTheBest/api/QuestForTheBest/GetFeaturedQuester");
+    const data = await response.json();
+
+    document.getElementById("featured-quester-card").innerHTML = `
+        <h3 class="text-uppercase mt-0 mb-4">Featured Quester</h3>
         <img id="drunkest-img" class="img-fluid d-block rounded mb-4" src="Content/Images/Drinkers/${getLastNameFirstInitial(data.questerName)}.jpg" />
         <h2 class="text-uppercase m-0">${data.questerNickname}</h2>
         <h5 class="text-uppercase m-0">${data.questerScoreCount} Drinks</h5>

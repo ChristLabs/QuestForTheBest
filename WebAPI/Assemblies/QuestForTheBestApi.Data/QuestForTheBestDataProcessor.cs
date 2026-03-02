@@ -366,6 +366,50 @@ namespace QuestForTheBestApi.Data
 			return null;
 		}
 
+
+		public static object GetFeaturedQuester()
+		{
+			using (var sqlConn = new SqlConnection(QuestForTheBestApiDatabaseConnection.conn))
+			{
+				using (var cmd = sqlConn.CreateCommand())
+				{
+					cmd.CommandText = @"
+						WITH cte_QuesterScoreCounts AS (
+							SELECT q.QuesterId, COUNT(s.Score) AS QuesterScoreCount
+								FROM Scores s
+									INNER JOIN Questers q
+										ON s.QuesterId = q.QuesterId
+								WHERE HasAvatar = 1
+								GROUP BY q.QuesterId
+						)
+						SELECT q.QuesterName
+								,q.QuesterNickname
+								,qsc.QuesterScoreCount
+								,(SELECT CAST(CAST(qsc.QuesterScoreCount AS decimal) / COUNT(*) * 100 AS decimal(4, 2)) FROM Scores) AS PercentageOfTotal
+							FROM cte_QuesterScoreCounts qsc
+								INNER JOIN Questers q
+									ON qsc.QuesterId = q.QuesterId
+							ORDER BY NEWID();;";
+
+					sqlConn.Open();
+
+					using var dr = cmd.ExecuteReader();
+					while (dr.Read())
+					{
+						return new
+						{
+							QuesterName = dr.GetString(0),
+							QuesterNickname = dr.GetString(1),
+							QuesterScoreCount = dr.GetInt32(2),
+							PercentageOfTotal = dr.GetDecimal(3)
+						};
+					}
+				}
+			}
+
+			return null;
+		}
+
 		public static List<object> GetMapData()
 		{
 			var ret = new List<object>();

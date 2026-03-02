@@ -62,6 +62,11 @@ namespace QuestForTheBestApi.Controllers
         public object GetDrunkestGuy() => QuestForTheBestDataProcessor.GetDrunkestGuy();
 
         [HttpGet]
+        [Route("GetFeaturedQuester")]
+        [RequestExceptionHandling]
+        public object GetFeaturedQuester() => QuestForTheBestDataProcessor.GetFeaturedQuester();
+
+        [HttpGet]
         [Route("GetMapData")]
         [RequestExceptionHandling]
         public List<object> GetMapData() => QuestForTheBestDataProcessor.GetMapData();

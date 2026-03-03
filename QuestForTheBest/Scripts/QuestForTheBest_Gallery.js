@@ -28,7 +28,7 @@ function renderImages(){
     imageData.forEach((image) => {
         document.getElementById("imageContainer").insertAdjacentHTML("beforeend", `
             <div class="grid-item" onclick="showGalleryModal(event);">
-					<img src="Content/Images/Gallery/${image.fileName}" alt="${image.altText}" class="img-fluid" />
+					<img src="Content/Images/Gallery/${image.subFolder}/${image.fileName}" alt="${image.altText}" class="img-fluid" />
             </div>`)
     });
 

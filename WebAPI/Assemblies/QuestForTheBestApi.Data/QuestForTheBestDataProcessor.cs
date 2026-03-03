@@ -374,22 +374,36 @@ namespace QuestForTheBestApi.Data
 				using (var cmd = sqlConn.CreateCommand())
 				{
 					cmd.CommandText = @"
+						DECLARE @Seed nvarchar(100) = CONVERT(nvarchar(10), GETDATE(), 23);
+
 						WITH cte_QuesterScoreCounts AS (
-							SELECT q.QuesterId, COUNT(s.Score) AS QuesterScoreCount
-								FROM Scores s
-									INNER JOIN Questers q
+							SELECT q.QuesterId
+									,COUNT(s.Score) AS QuesterScoreCount
+								FROM Scores AS s
+									INNER JOIN Questers AS q
 										ON s.QuesterId = q.QuesterId
-								WHERE HasAvatar = 1
+								WHERE q.HasAvatar = 1
 								GROUP BY q.QuesterId
 						)
 						SELECT q.QuesterName
 								,q.QuesterNickname
 								,qsc.QuesterScoreCount
-								,(SELECT CAST(CAST(qsc.QuesterScoreCount AS decimal) / COUNT(*) * 100 AS decimal(4, 2)) FROM Scores) AS PercentageOfTotal
-							FROM cte_QuesterScoreCounts qsc
-								INNER JOIN Questers q
+								,(
+									SELECT CAST(
+										CAST(qsc.QuesterScoreCount AS decimal(18, 4)) / COUNT(*) * 100
+										AS decimal(4, 2)
+									)
+									FROM Scores AS s
+								) AS PercentageOfTotal
+							FROM cte_QuesterScoreCounts AS qsc
+								INNER JOIN Questers AS q
 									ON qsc.QuesterId = q.QuesterId
-							ORDER BY NEWID();;";
+						ORDER BY
+							HASHBYTES(
+								'SHA2_256',
+								CONCAT(@Seed, N'|', CONVERT(nvarchar(50), qsc.QuesterId))
+							),
+							qsc.QuesterId;";
 
 					sqlConn.Open();
 

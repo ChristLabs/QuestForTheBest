@@ -1,0 +1,8 @@
+String.prototype.escapeHtml = function () {
+    return this
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+};

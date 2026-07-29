@@ -1,21 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 	<title>The History of the French 75 Cocktail</title>
-
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com" rel="preconnect" />
+	<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-    <link rel="icon" type="image/png" href="Content/Images/favicon.png">
+	<link href="Content/Images/favicon.png" rel="icon" type="image/png" />
 	<link href="Content/CSS/bootstrap-litera.min.css" rel="stylesheet" />
 	<link href="Content/CSS/quest.css" rel="stylesheet" />
-
 	<style>
 		:root {
 			--midnight: #101526;
@@ -240,7 +238,7 @@
 			font-size: .55rem;
 			letter-spacing: .35rem;
 			transform: translateY(.55rem);
-            margin-bottom: 1rem;
+			margin-bottom: 1rem;
 		}
 
 		.bg-accent {
@@ -309,6 +307,7 @@
 		}
 
 		@media (min-width: 768px) {
+
 			.recipe-table,
 			.recipe-instructions {
 				font-size: 1.4rem;
@@ -329,7 +328,7 @@
 			color: var(--paris-blue);
 			font-family: "Italiana", Georgia, serif;
 			font-size: 1.55rem;
-            font-weight: bold;
+			font-weight: bold;
 		}
 
 		.riffs-img {
@@ -342,7 +341,7 @@
 			box-shadow:
 				0 0 0 5px rgba(215, 189, 121, .15),
 				0 6px 18px rgba(0, 0, 0, .24);
-            object-position: center calc(50% - 7px);
+			object-position: center calc(50% - 7px);
 		}
 
 		.riff-divider {
@@ -413,123 +412,114 @@
 
 <body>
 	<!-- Header Section -->
-	<section id="hero" class="d-flex align-items-center justify-content-center">
+	<section class="d-flex align-items-center justify-content-center" id="hero">
 		<div class="darken-overlay"></div>
-
 		<div class="container text-center text-light position-relative py-5">
 			<a class="btn btn-outline-light border-0 position-absolute top-0 start-0 m-3" href="/">
 				<i class="fa fa-chevron-left"></i>
-			</a>
-
+			</a><button class="btn btn-outline-light border-0 position-absolute top-0 end-0 m-3" id="translateBtn"
+				type="button">🥖</button>
 			<div class="jumbotron py-5">
 				<div class="hero-number">75</div>
 				<br />
-				<div class="paris-ribbon text-uppercase mx-auto">Quest For The Best</div>
-
+				<div class="paris-ribbon text-uppercase mx-auto" id="heroRibbon">Quest For The Best</div>
 				<div class="py-4"></div>
-
-				<h2 class="display-5 cormorant-regular text-uppercase mb-1">The History of the</h2>
-				<h1 class="display-1 italiana-regular text-uppercase">French 75</h1>
-
+				<h2 class="display-5 cormorant-regular text-uppercase mb-1" id="heroSubtitle">The History of the</h2>
+				<h1 class="display-1 italiana-regular text-uppercase" id="heroTitle">French 75</h1>
 				<div class="py-4"></div>
-
-				<h4 class="montserrat-regular text-uppercase">Parisian sparkle with a formidable kick</h4>
+				<h4 class="montserrat-regular text-uppercase" id="heroTagline">Parisian sparkle with a formidable kick
+				</h4>
 			</div>
 		</div>
 	</section>
-
 	<!-- Origin Section -->
 	<section class="container my-5">
 		<div class="section py-4 px-md-5 px-3">
 			<div class="position-relative">
 				<div class="deco-dots text-center">◆ ◆ ◆</div>
-				<h2 class="section-title text-center italiana-regular text-uppercase mb-4">
+				<h2 class="section-title text-center italiana-regular text-uppercase mb-4" id="originTitle">
 					Place of
 					<br class="d-block d-md-none" />
 					Origin
 				</h2>
 			</div>
-
-			<p class="px-md-5 px-3">
+			<p class="px-md-5 px-3" id="originText">
 				The <strong>French 75</strong> emerged during the First World War and was named after the powerful
-				French 75-millimeter field gun. Its precise birthplace is debated, but the drink became closely associated
+				French 75-millimeter field gun. Its precise birthplace is debated, but the drink became closely
+				associated
 				with Parisian bars and the era's taste for lively combinations of gin, citrus, sugar, and Champagne.
 				Early printed versions varied, but the now-classic recipe took shape as a bright, elegant cocktail whose
 				sparkling finish concealed a surprisingly forceful punch.
 			</p>
 		</div>
 	</section>
-
 	<!-- Recipe Section -->
 	<section class="container my-5">
 		<div class="section py-4 px-0">
 			<div class="position-relative mx-5">
 				<div class="deco-dots text-center">◆ ◆ ◆</div>
-				<h2 class="section-title text-center italiana-regular text-uppercase mb-4">Recipe</h2>
+				<h2 class="section-title text-center italiana-regular text-uppercase mb-4" id="recipeTitle">Recipe</h2>
 			</div>
-
 			<div class="recipe-band py-4 mb-4">
 				<table class="recipe-table mx-auto">
 					<tr>
-						<td>1 oz</td>
-						<td><strong>London dry gin</strong></td>
+						<td id="ginAmount">1 oz</td>
+						<td id="ginIngredient"><strong>London dry gin</strong></td>
 					</tr>
 					<tr>
-						<td>½ oz</td>
-						<td><strong>Fresh lemon juice</strong></td>
+						<td id="lemonAmount">½ oz</td>
+						<td id="lemonIngredient"><strong>Fresh lemon juice</strong></td>
 					</tr>
 					<tr>
-						<td>½ oz</td>
-						<td><strong>Simple syrup</strong></td>
+						<td id="syrupAmount">½ oz</td>
+						<td id="syrupIngredient"><strong>Simple syrup</strong></td>
 					</tr>
 					<tr>
-						<td>3 oz</td>
-						<td><strong>Brut Champagne</strong> or dry sparkling wine</td>
+						<td id="champagneAmount">3 oz</td>
+						<td id="champagneIngredient"><strong>Brut Champagne</strong> or dry sparkling wine</td>
 					</tr>
 					<tr>
-						<td>1</td>
-						<td><strong>Lemon twist</strong> for garnish</td>
+						<td id="garnishAmount">1</td>
+						<td id="garnishIngredient"><strong>Lemon twist</strong> for garnish</td>
 					</tr>
 				</table>
 			</div>
-
 			<div class="row justify-content-center">
 				<div class="col-md-8">
-					<p class="recipe-instructions text-center px-3">
+					<p class="recipe-instructions text-center px-3" id="recipeInstructions">
 						Shake the gin, lemon juice, and simple syrup with ice. Strain into a chilled flute or coupe,
 						top slowly with Champagne, and garnish with a long lemon twist.
 					</p>
-					<p class="recipe-note text-center mb-0">
+					<p class="recipe-note text-center mb-0" id="recipeNote">
 						Pour the sparkling wine gently to preserve the bubbles
 					</p>
 				</div>
 			</div>
 		</div>
 	</section>
-
 	<!-- Glassware Section -->
 	<section class="container my-5">
 		<div class="section py-4 px-md-5 px-3">
 			<div class="position-relative">
 				<div class="deco-dots text-center">◆ ◆ ◆</div>
-				<h2 class="section-title text-center italiana-regular text-uppercase mb-4">Glassware</h2>
+				<h2 class="section-title text-center italiana-regular text-uppercase mb-4" id="glasswareTitle">Glassware
+				</h2>
 			</div>
-
-			<p class="px-md-5 px-3">
+			<p class="px-md-5 px-3" id="glasswareText">
 				The <strong>French 75</strong> is most often served in a Champagne flute, whose tall, narrow shape helps
 				preserve its effervescence and emphasizes the drink's refined character. A coupe offers a more dramatic,
-				vintage presentation and fits the cocktail's Parisian reputation, though its broad bowl allows bubbles to
+				vintage presentation and fits the cocktail's Parisian reputation, though its broad bowl allows bubbles
+				to
 				fade more quickly. Whichever glass you choose, chilling it first keeps the drink crisp and lively.
 			</p>
 		</div>
 	</section>
-
 	<!-- Influence Section -->
 	<section class="container my-5">
 		<div class="section py-4 px-md-5 px-3 bg-accent">
 			<div class="position-relative">
 				<div class="deco-dots text-center">◆ ◆ ◆</div>
-				<h2 class="section-title text-center italiana-regular text-uppercase mb-4">
+				<h2 class="section-title text-center italiana-regular text-uppercase mb-4" id="influenceTitle">
 					Influence
 					<br class="d-block d-md-none" />
 					on
@@ -537,9 +527,9 @@
 					Other Cocktails
 				</h2>
 			</div>
-
-			<p class="px-md-5 px-3">
-				The <strong>French 75</strong> helped establish sparkling wine as more than a celebratory topper: it became
+			<p class="px-md-5 px-3" id="influenceText">
+				The <strong>French 75</strong> helped establish sparkling wine as more than a celebratory topper: it
+				became
 				a structural ingredient capable of lengthening a cocktail while adding acidity, texture, and aroma.
 				Its combination of spirit, citrus, sweetener, and bubbles now serves as a template for countless modern
 				drinks. Bartenders can change the base spirit, introduce fruit or herbs, or trade Champagne for another
@@ -547,64 +537,58 @@
 			</p>
 		</div>
 	</section>
-
 	<!-- Riffs Section -->
 	<section class="container my-5">
 		<div class="section py-4 px-md-5 px-3">
 			<div class="position-relative">
 				<div class="deco-dots text-center">◆ ◆ ◆</div>
-				<h2 class="section-title text-center italiana-regular text-uppercase mb-4">
+				<h2 class="section-title text-center italiana-regular text-uppercase mb-4" id="riffsTitle">
 					Potential
 					<br class="d-block d-md-none" />
 					Riffs
 				</h2>
 			</div>
-
 			<p class="text-center px-md-5 jingle">
-				<img src="Content/Images/French-75.webp" class="d-block mx-auto riffs-img" alt="French 76" width="512" height="512" />
-				<span class="riffs-riff">French 76</span>
-				Replace the gin with vodka for a softer, cleaner variation.
+				<img alt="French 76" class="d-block mx-auto riffs-img" height="512" src="Content/Images/French-75.webp"
+					width="512" />
+				<span class="riffs-riff" id="riff1Title">French 76</span><span id="riff1Text">Replace the gin with vodka
+					for a softer, cleaner variation.</span>
 			</p>
-
 			<hr class="riff-divider" />
-
 			<p class="text-center px-md-5 jingle">
-                <img src="Content/Images/Japanese-75.webp" class="d-block mx-auto riffs-img" alt="Japanese 75" width="512" height="512" />
-                <span class="riffs-riff">Japanese 75</span>
-                <br />
-                Swap the Champagne for sparkling sake for a softer, delicately effervescent Japanese twist.
-            </p>
-
-            <hr class="riff-divider" />
-
-            <p class="text-center px-md-5 mb-0">
-                <img src="Content/Images/Italian-75.webp" class="d-block mx-auto riffs-img" alt="Italian 75" width="512" height="512" />
-                <span class="riffs-riff">Italian 75</span>
-                <br />
-                Swap the Champagne for Prosecco and top with Sanpellegrino Limonata for a bright, refreshing Italian twist.
-            </p>
+				<img alt="Japanese 75" class="d-block mx-auto riffs-img" height="512"
+					src="Content/Images/Japanese-75.webp" width="512" />
+				<span class="riffs-riff" id="riff2Title">Japanese 75</span>
+				<br /><span id="riff2Text">Swap the Champagne for sparkling sake for a softer, delicately effervescent
+					Japanese twist.</span>
+			</p>
+			<hr class="riff-divider" />
+			<p class="text-center px-md-5 mb-0">
+				<img alt="Italian 75" class="d-block mx-auto riffs-img" height="512"
+					src="Content/Images/Italian-75.webp" width="512" />
+				<span class="riffs-riff" id="riff3Title">Italian 75</span>
+				<br /><span id="riff3Text">Swap the Champagne for Prosecco and top with Sanpellegrino Limonata for a
+					bright, refreshing Italian twist.</span>
+			</p>
 		</div>
 	</section>
-
 	<!-- Score Section -->
-	<section id="scores" class="container my-5">
+	<section class="container my-5" id="scores">
 		<div class="section py-4 px-md-5 px-3">
 			<div class="position-relative">
 				<div class="deco-dots text-center">◆ ◆ ◆</div>
-				<h2 class="section-title text-center italiana-regular text-uppercase mb-4">
+				<h2 class="section-title text-center italiana-regular text-uppercase mb-4" id="scoresTitle">
 					French 75
 					<br class="d-block d-md-none" />
 					Scores
 				</h2>
 			</div>
-
 			<div class="score-placeholder">
-				<strong>La dégustation commence bientôt</strong>
-				<p class="mb-0">
+				<strong id="scoreHeading">La dégustation commence bientôt</strong>
+				<p class="mb-0" id="scoreText">
 					Replace this panel with the French 75 score table once the quest begins.
 				</p>
 			</div>
-
 			<!--
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-hover">
@@ -631,20 +615,52 @@
 			-->
 		</div>
 	</section>
-
 	<!-- Footer Section -->
 	<div class="container text-center my-4">
-		<a href="index.html" class="btn btn-paris">Back to Homepage</a>
+		<a class="btn btn-paris" href="index.html" id="homeButton">Back to Homepage</a>
 	</div>
-
 	<footer class="text-center">
-		<p class="text-center mb-0">
-			<strong>Quest For The Best</strong> &mdash; French 75
+		<p class="text-center mb-0" id="footerText">
+			<strong>Quest For The Best</strong> — French 75
 		</p>
 	</footer>
-
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="Scripts/jabroni.js"></script>
+	<script>
+		(() => {
+			let frenchMode = false;
+
+			const english = { "heroRibbon": "Quest For The Best", "heroSubtitle": "The History of the", "heroTitle": "French 75", "heroTagline": "Parisian sparkle with a formidable kick", "originTitle": "\n\t\t\t\t\tPlace of\n\t\t\t\t\t<br class=\"d-block d-md-none\"/>\n\t\t\t\t\tOrigin\n\t\t\t\t", "originText": "\n\t\t\t\tThe <strong>French 75</strong> emerged during the First World War and was named after the powerful\n\t\t\t\tFrench 75-millimeter field gun. Its precise birthplace is debated, but the drink became closely associated\n\t\t\t\twith Parisian bars and the era's taste for lively combinations of gin, citrus, sugar, and Champagne.\n\t\t\t\tEarly printed versions varied, but the now-classic recipe took shape as a bright, elegant cocktail whose\n\t\t\t\tsparkling finish concealed a surprisingly forceful punch.\n\t\t\t", "recipeTitle": "Recipe", "ginAmount": "1 oz", "ginIngredient": "<strong>London dry gin</strong>", "lemonAmount": "½ oz", "lemonIngredient": "<strong>Fresh lemon juice</strong>", "syrupAmount": "½ oz", "syrupIngredient": "<strong>Simple syrup</strong>", "champagneAmount": "3 oz", "champagneIngredient": "<strong>Brut Champagne</strong> or dry sparkling wine", "garnishAmount": "1", "garnishIngredient": "<strong>Lemon twist</strong> for garnish", "recipeInstructions": "\n\t\t\t\t\t\tShake the gin, lemon juice, and simple syrup with ice. Strain into a chilled flute or coupe,\n\t\t\t\t\t\ttop slowly with Champagne, and garnish with a long lemon twist.\n\t\t\t\t\t", "recipeNote": "\n\t\t\t\t\t\tPour the sparkling wine gently to preserve the bubbles\n\t\t\t\t\t", "glasswareTitle": "Glassware", "glasswareText": "\n\t\t\t\tThe <strong>French 75</strong> is most often served in a Champagne flute, whose tall, narrow shape helps\n\t\t\t\tpreserve its effervescence and emphasizes the drink's refined character. A coupe offers a more dramatic,\n\t\t\t\tvintage presentation and fits the cocktail's Parisian reputation, though its broad bowl allows bubbles to\n\t\t\t\tfade more quickly. Whichever glass you choose, chilling it first keeps the drink crisp and lively.\n\t\t\t", "influenceTitle": "\n\t\t\t\t\tInfluence\n\t\t\t\t\t<br class=\"d-block d-md-none\"/>\n\t\t\t\t\ton\n\t\t\t\t\t<br class=\"d-none d-md-block\"/>\n\t\t\t\t\tOther Cocktails\n\t\t\t\t", "influenceText": "\n\t\t\t\tThe <strong>French 75</strong> helped establish sparkling wine as more than a celebratory topper: it became\n\t\t\t\ta structural ingredient capable of lengthening a cocktail while adding acidity, texture, and aroma.\n\t\t\t\tIts combination of spirit, citrus, sweetener, and bubbles now serves as a template for countless modern\n\t\t\t\tdrinks. Bartenders can change the base spirit, introduce fruit or herbs, or trade Champagne for another\n\t\t\t\tdry sparkling wine while preserving the original's elegant balance.\n\t\t\t", "riffsTitle": "\n\t\t\t\t\tPotential\n\t\t\t\t\t<br class=\"d-block d-md-none\"/>\n\t\t\t\t\tRiffs\n\t\t\t\t", "riff1Title": "French 76", "riff1Text": "Replace the gin with vodka for a softer, cleaner variation.", "riff2Title": "Japanese 75", "riff2Text": "Swap the Champagne for sparkling sake for a softer, delicately effervescent Japanese twist.", "riff3Title": "Italian 75", "riff3Text": "Swap the Champagne for Prosecco and top with Sanpellegrino Limonata for a bright, refreshing Italian twist.", "scoresTitle": "\n\t\t\t\t\tFrench 75\n\t\t\t\t\t<br class=\"d-block d-md-none\"/>\n\t\t\t\t\tScores\n\t\t\t\t", "scoreHeading": "La dégustation commence bientôt", "scoreText": "\n\t\t\t\t\tReplace this panel with the French 75 score table once the quest begins.\n\t\t\t\t", "homeButton": "Back to Homepage", "footerText": "\n<strong>Quest For The Best</strong> — French 75\n\t\t" };
+			const french = { "heroRibbon": "La Quête du Meilleur", "heroSubtitle": "L'Histoire du", "heroTitle": "Soixante-Quinze", "heroTagline": "L'éclat parisien avec une puissance redoutable", "originTitle": "Lieu<br class=\"d-block d-md-none\"> d'Origine", "originText": "Le <strong>French 75</strong> est apparu pendant la Première Guerre mondiale et tire son nom du puissant canon de campagne français de 75 millimètres. Son lieu de naissance exact fait encore débat, mais le cocktail est devenu étroitement associé aux bars parisiens et au goût de l'époque pour les mélanges vifs de gin, d'agrumes, de sucre et de Champagne. Les premières recettes imprimées variaient, mais la version aujourd'hui classique s'est imposée comme un cocktail lumineux et élégant dont la finale pétillante dissimule une force étonnante.", "recipeTitle": "Recette", "ginAmount": "1 oz", "ginIngredient": "<strong>Gin London dry</strong>", "lemonAmount": "½ oz", "lemonIngredient": "<strong>Jus de citron frais</strong>", "syrupAmount": "½ oz", "syrupIngredient": "<strong>Sirop simple</strong>", "champagneAmount": "3 oz", "champagneIngredient": "<strong>Champagne brut</strong> ou vin mousseux sec", "garnishAmount": "1", "garnishIngredient": "<strong>Zeste de citron</strong> pour la garniture", "recipeInstructions": "Secouez le gin, le jus de citron et le sirop simple avec de la glace. Filtrez dans une flûte ou une coupe bien froide, complétez doucement avec le Champagne et garnissez d'un long zeste de citron.", "recipeNote": "Versez le vin mousseux délicatement afin de préserver les bulles", "glasswareTitle": "Verrerie", "glasswareText": "Le <strong>French 75</strong> est le plus souvent servi dans une flûte à Champagne, dont la forme haute et étroite aide à préserver l'effervescence tout en soulignant le raffinement du cocktail. Une coupe offre une présentation plus théâtrale et plus rétro, parfaitement adaptée à sa réputation parisienne, même si son large calice laisse les bulles s'échapper plus rapidement. Quel que soit le verre choisi, refroidissez-le au préalable pour garder le cocktail vif et frais.", "influenceTitle": "Influence<br class=\"d-block d-md-none\"> sur<br class=\"d-none d-md-block\"> d'Autres Cocktails", "influenceText": "Le <strong>French 75</strong> a contribué à faire du vin mousseux bien plus qu'une simple touche festive : il est devenu un ingrédient structurant capable d'allonger un cocktail tout en lui apportant acidité, texture et arômes. Son association de spiritueux, d'agrumes, de sucre et de bulles sert aujourd'hui de modèle à d'innombrables créations modernes. Les bartenders peuvent changer le spiritueux de base, ajouter des fruits ou des herbes, ou remplacer le Champagne par un autre vin mousseux sec tout en conservant l'élégant équilibre de l'original.", "riffsTitle": "Variantes<br class=\"d-block d-md-none\"> Possibles", "riff1Title": "French 76", "riff1Text": "Remplacez le gin par de la vodka pour une variation plus douce et plus nette.", "riff2Title": "Japanese 75", "riff2Text": "Remplacez le Champagne par du saké pétillant pour une variation japonaise plus douce et délicatement effervescente.", "riff3Title": "Italian 75", "riff3Text": "Associez gin, soda au citron et Prosecco pour une variation italienne vive et rafraîchissante.", "scoresTitle": "Notes du<br class=\"d-block d-md-none\"> French 75", "scoreHeading": "La dégustation commence bientôt", "scoreText": "Remplacez ce panneau par le tableau des notes du French 75 une fois la quête lancée.", "homeButton": "Retour à l'Accueil", "footerText": "<strong>La Quête du Meilleur</strong> &mdash; French 75" };
+
+			const button = document.getElementById("translateBtn");
+
+			function applyLanguage(dictionary) {
+				Object.entries(dictionary).forEach(([id, html]) => {
+					const element = document.getElementById(id);
+					if (element) {
+						element.innerHTML = html;
+					}
+				});
+			}
+
+			button.addEventListener("click", () => {
+				frenchMode = !frenchMode;
+
+				if (frenchMode) {
+					applyLanguage(french);
+					button.innerHTML = "🇺🇸 English";
+					document.documentElement.lang = "fr";
+					document.title = "L'Histoire du Cocktail French 75";
+				} else {
+					applyLanguage(english);
+					button.innerHTML = "🥖 Oui Oui Mode";
+					document.documentElement.lang = "en";
+					document.title = "The History of the French 75 Cocktail";
+				}
+			});
+		})();
+	</script>
 </body>
 
 </html>

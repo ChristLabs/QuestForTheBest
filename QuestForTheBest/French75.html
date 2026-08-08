@@ -383,6 +383,12 @@
 			font-size: 1.6rem;
 		}
 
+		.scores-table,
+		.scores-table th,
+		.scores-table td {
+			color: rgb(250, 245, 232);
+		}
+
 		.btn-paris {
 			border: 1px solid var(--champagne);
 			border-radius: 0;
@@ -583,36 +589,160 @@
 					Scores
 				</h2>
 			</div>
-			<div class="score-placeholder">
-				<strong id="scoreHeading">La dégustation commence bientôt</strong>
-				<p class="mb-0" id="scoreText">
-					Replace this panel with the French 75 score table once the quest begins.
-				</p>
-			</div>
-			<!--
 			<div class="table-responsive">
-				<table class="table table-striped table-bordered table-hover">
+				<table class="table table-striped table-hover align-middle text-center scores-table">
 					<thead>
 						<tr>
-							<th></th>
-							<th>Bar One</th>
-							<th>Bar Two</th>
-							<th>Bar Three</th>
-							<th>Averages</th>
+							<th scope="col" class="text-start">Quester</th>
+							<th scope="col">Altitude 15</th>
+							<th scope="col">Shiny Prize</th>
+							<th scope="col">Row</th>
+							<th scope="col">Cheeky Martini</th>
+							<th scope="col">Filibuster</th>
+							<th scope="col">The Bus Stop</th>
+							<th scope="col">Capitol Tavern</th>
+							<th scope="col">Average</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="text-light">
 						<tr>
-							<td>Participant</td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td><strong></strong></td>
+							<th scope="row" class="text-start">Eric</th>
+							<td>6.00</td>
+							<td>8.40</td>
+							<td>6.90</td>
+							<td>7.90</td>
+							<td>8.00</td>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td><strong>7.44</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Collin</th>
+							<td>6.50</td>
+							<td>8.50</td>
+							<td>8.50</td>
+							<td>7.50</td>
+							<td>8.00</td>
+							<td>7.00</td>
+							<td>7.50</td>
+							<td><strong>7.64</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Christ</th>
+							<td>5.75</td>
+							<td>7.80</td>
+							<td>7.90</td>
+							<td>8.20</td>
+							<td>8.20</td>
+							<td>7.50</td>
+							<td>6.50</td>
+							<td><strong>7.41</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Kyle</th>
+							<td>5.00</td>
+							<td>9.00</td>
+							<td>7.50</td>
+							<td>7.50</td>
+							<td>7.50</td>
+							<td>7.75</td>
+							<td>7.00</td>
+							<td><strong>7.32</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Timbo</th>
+							<td>&mdash;</td>
+							<td>8.80</td>
+							<td>8.10</td>
+							<td>7.80</td>
+							<td>8.10</td>
+							<td>7.60</td>
+							<td>8.00</td>
+							<td><strong>8.07</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Kriston</th>
+							<td>&mdash;</td>
+							<td>8.50</td>
+							<td>7.50</td>
+							<td>8.00</td>
+							<td>6.50</td>
+							<td>7.00</td>
+							<td>6.75</td>
+							<td><strong>7.38</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Steph</th>
+							<td>&mdash;</td>
+							<td>7.00</td>
+							<td>7.00</td>
+							<td>7.50</td>
+							<td>7.25</td>
+							<td>6.75</td>
+							<td>6.50</td>
+							<td><strong>7.00</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Kylea</th>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>7.70</td>
+							<td>8.20</td>
+							<td>8.30</td>
+							<td>7.60</td>
+							<td>&mdash;</td>
+							<td><strong>7.95</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Karen</th>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>7.30</td>
+							<td>7.90</td>
+							<td>8.20</td>
+							<td>7.10</td>
+							<td>&mdash;</td>
+							<td><strong>7.63</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Jimbo</th>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>7.00</td>
+							<td>7.50</td>
+							<td>6.00</td>
+							<td>6.23</td>
+							<td><strong>6.68</strong></td>
+						</tr>
+						<tr>
+							<th scope="row" class="text-start">Vincent</th>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>&mdash;</td>
+							<td>7.00</td>
+							<td>&mdash;</td>
+							<td><strong>7.00</strong></td>
 						</tr>
 					</tbody>
+			
+					<tfoot>
+						<tr class="fw-bold">
+							<th scope="row" class="text-start">Average</th>
+							<td>5.81</td>
+							<td>8.29</td>
+							<td>7.60</td>
+							<td>7.75</td>
+							<td>7.76</td>
+							<td>7.13</td>
+							<td>6.93</td>
+							<td>7.45</td>
+						</tr>
+					</tfoot>
 				</table>
 			</div>
-			-->
 		</div>
 	</section>
 	<!-- Footer Section -->

@@ -4,7 +4,7 @@ GO
 BEGIN TRAN
 	-- QuestId
 	DECLARE @NegroniQuest smallint = (
-		SELECT c.CocktailId
+		SELECT q.QuestId
 			FROM Quests q
 				INNER JOIN Cocktails c
 					ON q.PrimaryCocktailId = c.CocktailId

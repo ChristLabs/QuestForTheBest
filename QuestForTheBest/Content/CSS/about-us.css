@@ -240,11 +240,6 @@
 	.flip-card-inner {
 		transition: none;
 	}
-
-	.flip-card:hover .flip-card-front,
-	.flip-card:hover .flip-card-back {
-		transform: none;
-	}
 }
 
 /* small screens */
